@@ -1,0 +1,81 @@
+.p-cart_step_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+    color: #fff;
+    width: calc(100% / 4);
+    height: 4rem;
+    position: relative;
+    font-size: 20px;
+}
+
+.p-cart_step {
+    width: 100%;
+    // margin: 100px 50px 0 0;
+    line-height: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2rem !important;
+   
+}
+
+.active{
+    clip-path: polygon(97% 0, 100% 50%, 97% 100%, 0% 100%, 3% 50%, 0% 0%);
+    // clip-path: polygon(0% 0%, 97% 0, 100% 50%, 97% 100%, 0% 100%);
+    background-color: #224040;
+}
+
+.nonactive1{
+    clip-path: polygon(97% 0, 100% 50%, 97% 100%, 0% 100%, 3% 50%, 0% 0%);
+    color:black;
+}
+
+.nonactive2{
+    clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 3% 50%, 0% 0%);
+
+    background-color: #224040;
+}
+
+@media screen and (max-width: 768px)
+{
+    .p-cart_step_item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f2f2f2;
+        color: #fff;
+        width: calc(100% / 4);
+        height: 25px;
+        position: relative;
+        font-size: 12px;
+        }
+        
+    .p-cart_step {
+        width: 100%;
+        margin: 100px 50px 0 0;
+        line-height: 20px;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-top: 1rem;
+        }
+    
+    .active{
+        clip-path: polygon(0% 0%, 94% 0, 100% 50%, 94% 100%, 0% 100%);
+        background-color: #224040;
+        }
+            
+    .nonactive1{
+        clip-path: polygon(94% 0, 100% 50%, 94% 100%, 0% 100%, 6% 50%, 0% 0%);
+        color:black;
+        }
+            
+    .nonactive2{
+        clip-path: polygon(94% 0, 100% 50%, 94% 100%, 0% 100%, 6% 50%, 0% 0%);
+        color:black;
+        }
+}    

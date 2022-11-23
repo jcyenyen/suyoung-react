@@ -1,0 +1,1297 @@
+:root {
+    //各種顏色
+    --primary_color: #224040;
+    --primary_color_900: #0a1e22;
+    --primary_color_600: #1a5252;
+    --primary_color_500: #62b6b6;
+    --secondary_color: #952e1f;
+    --error_color: #ec391e;
+    --background_color: #f2f2f2;
+    --input_color: #fff6e7;
+    --brown_color: #c1a688;
+
+    //各種文字大小
+    --h1_text: 96px;
+    --h2_text: 60px;
+    --h3_text: 48px;
+    --h4_text: 34px;
+    --h5_text: 24px;
+    --subtitle_text: 16px;
+    --button_text: 14px;
+    --text_size: 14px;
+    --gsap_pos: 400px;
+    --gsap_gap: 2rem;
+}
+
+// @media (max-width: 1680px) {
+   
+// }
+
+// @media (max-width: 768px) {
+   
+// }
+
+// @media (max-width: 480px) {
+    
+// }
+
+h1 {
+    font-size: var(--h1_text);
+}
+
+h2 {
+    font-size: var(--h2_text);
+}
+
+h3 {
+    font-size: var(--h3_text);
+}
+
+h4 {
+    font-size: var(--h4_text);
+}
+
+h5 {
+    font-size: var(--h5_text);
+}
+
+p {
+    font-size: var(--text_size);
+}
+
+@mixin p_button {
+    font-size: var(--button_text);
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--primary_color);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    border: 0;
+    transition: .3s ease;
+
+    transition: .3s ease;
+
+        &:hover {
+            transform: scale(1.3);
+            background-color: var(--primary_color_600);
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.284);
+            transform: translate(-3px, -3px);
+        }
+
+        &:active {
+            transform: scale(0.98);
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+            color: var(--brown_color);
+        }
+}
+
+// 東方神秘力量
+@mixin eastern_mistery_force {
+    width: 90%;
+    // height: 100%;
+    margin: 40px auto;
+    border-radius: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+// card 專用背景
+@mixin card_background {
+    border-radius: 1rem;
+    backdrop-filter: blur(20px);
+    margin: auto;
+}
+
+
+//----------input&label-----------//
+/* input LABEL */
+@mixin input_label {
+    color: #999;
+    font-size: var(--subtitle_text);
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: var(--text_size);
+    top: calc(var(--text_size) * 0.7);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* input */
+@mixin input_style {
+    font-size: var(--subtitle_text);
+    padding: var(--text_size) var(--text_size) var(--text_size) calc(var(--text_size) * 3);
+    display: block;
+    width: calc(var(--h4_text) * 10);
+    height: var(--h3_text);
+    border: none;
+    background-color: #fff6e7;
+    border-radius: var(--h3_text);
+    color: var(--primary_color);
+
+    &:focus,
+    &:invalid {
+        outline: 1px solid #224040;
+    }
+
+    &:focus~label,
+    &:invalid~label {
+        top: calc((var(--h5_text)) * (-1));
+        font-size: var(--text_size);
+        color: var(--primary_color);
+    }
+}
+
+// input 外面包一層div群組
+// 可統一使用
+.input_group {
+    position: relative;
+}
+
+
+
+@keyframes sdb05 {
+    0% {
+        -webkit-transform: rotate(-45deg) translate(0, 0);
+        transform: rotate(-45deg) translate(0, 0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+        transform: rotate(-45deg) translate(-20px, 20px);
+        opacity: 0;
+    }
+}
+
+
+.swal2-confirm {
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+.room_order_detail {
+    // height: 90vh;
+    position: relative;
+
+    .room_order_container {
+        @include eastern_mistery_force();
+        background-color: rgba($color: #fff, $alpha: 0.4);
+        // padding: var(--subtitle_text);
+        margin-top: 0;
+        overflow: hidden;
+
+        .room_Rows {
+            width: 100%;
+            display: flex;
+            margin: auto;
+
+            @media screen and (max-width:768px) {
+                display: flex;
+                flex-direction: column;
+            }
+
+
+            .room_col_left {
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                margin-right: 2rem;
+
+                @media screen and (max-width:768px) {
+                    width: 100%;
+                }
+
+                .room_Card {
+                    width: 100%;
+                    @include card_background();
+
+                    display: flex;
+                    margin: 0;
+                    padding: 2rem;
+
+                    @media screen and (max-width:768px) {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 1rem;
+                    }
+
+                    .room_pic {
+                        width: 60%;
+                        margin: 1rem;
+
+                        @media screen and (max-width:768px) {
+                            width: 100%;
+                            margin: 0;
+                        }
+
+                        .swiper_container {
+                            position: relative;
+                            height: 100%;
+                            background: rgba(255, 255, 255, 0.4);
+                            font-size: var(--text_size);
+                            color: var(--primary_color_900);
+                            padding: 0;
+                            overflow: hidden;
+                            border-radius: 1rem;
+
+                            @media screen and (max-width:768px) {
+                                border-radius: 0.5rem;
+                            }
+
+                            .swiper {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            .swiper-slide {
+                                text-align: center;
+                                font-size: var(--text_size);
+                                background: #fff;
+
+                                /* Center slide text vertically */
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: -webkit-flex;
+                                display: flex;
+                                -webkit-box-pack: center;
+                                -ms-flex-pack: center;
+                                -webkit-justify-content: center;
+                                justify-content: center;
+                                -webkit-box-align: center;
+                                -ms-flex-align: center;
+                                -webkit-align-items: center;
+                                align-items: center;
+                            }
+
+                            .swiper-slide img {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                border-radius: 0;
+                            }
+
+                            .swiper {
+                                width: 100%;
+                                height: 300px;
+
+                                margin: 0 auto 1rem;
+                            }
+
+                            .swiper-slide {
+                                background-size: cover;
+                                background-position: center;
+                            }
+
+                            .mySwiper2 {
+                                height: 80%;
+                                width: 100%;
+                                border-radius: 1rem;
+
+                                @media screen and (max-width:768px) {
+                                    border-radius: 0.5rem;
+                                }
+                            }
+
+                            .mySwiper {
+                                height: 20%;
+                                box-sizing: border-box;
+                                padding: 10px 0;
+
+                                @media screen and (max-width:768px) {
+                                    padding: 0;
+                                }
+                            }
+
+                            .mySwiper .swiper-slide {
+                                width: 25%;
+                                height: 100%;
+                                opacity: 0.4;
+
+                            }
+
+                            .mySwiper .swiper-slide-thumb-active {
+                                opacity: 1;
+                            }
+
+                            .swiper-slide img {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                border-radius: 1rem;
+
+                                @media screen and (max-width:768px) {
+                                    border-radius: 0.5rem;
+                                }
+                            }
+
+                            .swiper-button-prev,
+                            .swiper-button-next {
+                                &::after {
+                                    @media screen and (max-width:768px) {
+                                        font-size: var(--subtitle_text);
+                                    }
+                                }
+                            }
+
+                            .swiper-button-prev {
+                                left: 5px;
+                            }
+
+                            .swiper-button-next {
+                                right: 5px
+                            }
+
+                        }
+
+                    }
+
+                    .room_content {
+
+                        width: 40%;
+                        @include card_background();
+                        margin: 1rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        @media screen and (max-width:768px) {
+                            width: 100%;
+                            margin: 1rem 0;
+                        }
+
+                        .room_card_title,
+                        .room_card_subtitle {
+                            width: 85%;
+                            margin: auto;
+                            color: var(--primary_color);
+                            font-weight: 600;
+                        }
+
+                        .room_card_tag {
+                            width: 85%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: flex-start;
+                            margin: auto;
+
+                            // border: 1px solid red;
+                            .room_card_tag_btn {
+                                position: relative;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                text-align: center;
+                                padding: 6px var(--subtitle_text);
+                                font-size: var(--text_size);
+                                line-height: var(--subtitle_text);
+                                letter-spacing: 2px;
+                                margin: 0 6px var(--subtitle_text) 6px;
+                                text-align: center;
+                                border-radius: 4px;
+                                cursor: pointer;
+                                color: var(--background_color);
+                                text-transform: uppercase;
+                                background-color: var(--primary_color_900);
+
+                                &::before {
+                                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                    position: absolute;
+                                    content: "";
+                                    top: -2px;
+                                    left: -2px;
+                                    width: calc(100% + 4px);
+                                    height: calc(100% + 4px);
+                                    border-radius: 4px;
+                                    z-index: -2;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    transition: all 0.5s linear;
+
+                                }
+
+                                // checkbox 點擊前的lebal 的偽元素 after
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    top: -2px;
+                                    left: -2px;
+                                    width: calc(100% + 4px);
+                                    height: calc(100% + 4px);
+                                    border-radius: 4px;
+                                    z-index: -2;
+                                    background-color: var(--primary_color_900);
+                                    transition: all 0.5s linear;
+
+                                }
+
+                                // 文字的初始設定
+                                .text {
+                                    position: relative;
+                                    display: inline-block;
+                                    opacity: 1;
+                                    font-size: var(--text_size);
+
+                                    &::after {
+                                        position: absolute;
+                                        content: "";
+                                        width: 0;
+                                        left: 0;
+                                        bottom: -10%;
+                                        margin-top: -1px;
+                                        height: 2px;
+                                        background-image: linear-gradient(138deg,
+                                                var(--input_color),
+                                                var(--primary_color_500));
+                                        z-index: 2;
+                                        width: 0;
+                                        transition: all 0.5s linear;
+                                    }
+                                }
+
+                                &:hover {
+                                    background-color: var(--primary_color_600);
+
+                                    ::before {
+                                        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                        position: absolute;
+                                        content: "";
+                                        top: -2px;
+                                        left: -2px;
+                                        width: calc(100% + 4px);
+                                        height: calc(100% + 4px);
+                                        border-radius: 4px;
+                                        z-index: -2;
+                                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                                        transition: all 0.5s linear;
+                                    }
+
+                                    //偽元素 after
+                                    &::after {
+                                        position: absolute;
+                                        content: "";
+                                        top: -2px;
+                                        left: -2px;
+                                        width: calc(100% + 4px);
+                                        height: calc(100% + 4px);
+                                        border-radius: 4px;
+                                        z-index: 1;
+                                        background-color: var(--primary_color_600);
+                                        opacity: 0;
+                                        transition: all 0.5s linear;
+                                    }
+
+                                    .text {
+                                        position: relative;
+                                        display: inline-block;
+                                        z-index: 3;
+                                        transition: all 0.5s linear;
+                                        opacity: 1;
+
+                                        &::after {
+                                            position: absolute;
+                                            content: "";
+                                            left: 0;
+                                            bottom: -10%;
+                                            margin-top: -1px;
+                                            height: 2px;
+                                            background-image: linear-gradient(138deg,
+                                                    var(--input_color),
+                                                    var(--primary_color_500));
+                                            z-index: 2;
+                                            width: 100%;
+                                            transition: all 0.5s linear;
+                                        }
+                                    }
+                                }
+
+
+                            }
+                        }
+
+                        .room_card_paragraph {
+                            color: #999;
+
+                            @media screen and (max-width:768px) {
+
+                                margin: 1rem;
+                            }
+                        }
+
+                        .room_card_Price {
+                            display: flex;
+                            width: 85%;
+                            justify-content: space-evenly;
+                            align-items: baseline;
+                            margin: auto;
+                            border-bottom: 1px solid var(--primary_color_900);
+                            padding: 3px var(--subtitle_text);
+
+                            @media screen and (max-width:768px) {
+                                padding: 0;
+                            }
+                        }
+
+
+                    }
+                }
+
+                .room_equipment {
+
+                    width: 100%;
+                    @include card_background();
+                    margin: 2rem 0 0 0;
+                    padding: 2rem;
+                    @media screen and (max-width:768px) {
+                        width: 100%;
+                        margin-top: 1rem;
+                        padding: 1rem;
+                    }
+
+                    .room_equipment_title {
+                        width: 100%;
+                        margin: auto;
+
+                        h5 {
+                            padding: var(--text_size) auto;
+                            color: var(--primary_color);
+                        }
+                    }
+
+                    .room_equipment_box {
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+                        margin: 1rem 0rem;
+
+                        .room_equipment_btn {
+                            border: 1px solid var(--primary_color);
+                            color: var(--primary_color);
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 6px var(--subtitle_text);
+                            font-size: var(--text_size);
+                            line-height: var(--subtitle_text);
+                            letter-spacing: 2px;
+                            margin: 0 6px var(--subtitle_text) 6px;
+                            text-align: center;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-size: var(--text_size);
+
+
+                        }
+                    }
+                }
+            }
+
+            .room_col_right {
+                width: 30%;
+                @include card_background();
+                margin: 0;
+
+                @media screen and (max-width:768px) {
+                    width: 100%;
+                    margin-top: 1rem;
+                }
+
+                .booking_detail_area {
+                    margin: 4rem 0;
+
+                    @media screen and (max-width:768px) {
+                        margin: 1rem 0;
+                    }
+
+                    .booking_date_title {
+                        color: var(--primary_color);
+                        margin: 0 4rem;
+                    }
+
+                    .booking_date_in,
+                    .booking_date_out {
+                        margin: 2rem 4rem;
+
+                        @media screen and (max-width:768px) {
+                            margin: 1rem 2rem;
+                        }
+
+                        input {
+                            @include input_style();
+                            outline: 1px solid #224040;
+                            padding: 0;
+
+                            &~label,
+                            &~label {
+                                top: calc((var(--h5_text)) * (-1));
+                                font-size: var(--text_size);
+                                color: var(--primary_color);
+                            }
+
+                            text-align: center;
+                            width: 100%;
+                        }
+
+                        label {
+                            @include input_label();
+
+                            @media screen and (max-width:768px) {
+                                display: none;
+                            }
+                        }
+
+                    }
+
+                    .booking_person {
+                        margin: 2rem 4rem;
+
+                        @media screen and (max-width:768px) {
+                            margin: 1rem 2rem;
+                        }
+
+                        input {
+                            @include input_style();
+                            padding: 0;
+                            text-align: center;
+                            width: 100%;
+                            outline: 1px solid #224040;
+
+                            &~label,
+                            &~label {
+                                top: calc((var(--h5_text)) * (-1));
+                                font-size: var(--text_size);
+                                color: var(--primary_color);
+                            }
+                        }
+
+                        label {
+                            @include input_label();
+
+                            @media screen and (max-width:768px) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                .room_Result {
+                    color: var(--primary_color);
+                    margin: 3rem 0;
+
+                    @media screen and (max-width:768px) {
+                        margin: 1rem 0;
+                    }
+
+                    .room_title {
+                        margin: 2rem 4rem;
+                        @media screen and (max-width:768px) {
+                            margin: 1rem 2rem;
+                            span{
+                                font-size: 16px;
+                            }
+                        }
+                    }
+
+                    .room_result_type {
+                        a {
+                            text-decoration: none;
+                        }
+
+                        .room_modify {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 2rem 4rem;
+                            @media screen and (max-width:768px) {
+                                margin: 1rem 3rem;
+                                span{
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        .room_price {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 2rem 4rem;
+                            @media screen and (max-width:768px) {
+                                margin: 1rem 3rem;
+                                span{
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        .room_add_bed {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 2rem 4rem;
+                            @media screen and (max-width:768px) {
+                                margin: 1rem 3rem;
+                                span{
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        .room_result_total {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 2rem 4rem;
+                            padding-top: 2rem;
+                            border-top: 1px solid var(--primary_color);
+                            @media screen and (max-width:768px) {
+                                margin: 1rem 3rem;
+                                h5{
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+
+                        .room_card_button_area {
+                            width: 85%;
+                            margin: auto;
+                            padding: var(--h5_text) 0;
+                            display: flex;
+
+                            .room_card_button {
+                                display: block;
+                                @include p_button;
+
+                                width: 150px;
+                                height: 50px;
+                                border-radius: 50px;
+                                margin: auto;
+                                @media screen and (max-width:768px) {
+                                    width: 100px;
+                                    height: 30px;
+                                    border-radius: 15px;
+                                }
+
+                                &:nth-child(1) {
+
+                                    background-color: var(--primary_color_600);
+
+                                    &:hover {
+                                        background-color: #1e6969;
+                                        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.284);
+                                        transform: translate(-3px, -3px);
+                                    }
+
+                                    &:active {
+                                        transform: scale(0.98);
+                                        /* Scaling button to 0.98 to its original size */
+                                        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+                                        /* Lowering the shadow */
+                                        color: var(--brown_color);
+                                    }
+                                }
+
+                                &:nth-child(2) {
+                                    background-color: var(--secondary_color);
+
+                                    &:hover {
+                                        background-color: #9e3222;
+                                        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.284);
+                                        transform: translate(-3px, -3px);
+                                    }
+
+                                    &:active {
+                                        transform: scale(0.98);
+                                        /* Scaling button to 0.98 to its original size */
+                                        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+                                        /* Lowering the shadow */
+                                        color: var(--brown_color);
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    
+}
+
+
+
+
+.room_detail_up {
+    padding: var(--h2_text);
+    height: 2800px;
+    background-color: #415f4d;
+    position: relative;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    @media (max-width: 1680px) {
+        height: 2800px;
+    }
+
+    @media (max-width: 768px) {
+        height: 2200px;
+
+    }
+
+    @media (max-width: 480px) {
+        height: 1550px;
+        padding-top : var(--h1_text);
+    }
+
+    .detail_up_title {
+        color: var(--background_color);
+        margin: auto;
+        text-align: center;
+        h1{
+            letter-spacing: 1rem;
+        }
+
+    }
+
+    .room_detail_container {
+
+        // background-color: #ec391e;
+        // display: flex;
+        // flex-direction: column;
+        // gap: var(--text_size);
+
+        .filled-text1,
+        .filled-text2,
+        .filled-text3,
+        .filled-text4,
+        .filled-text5,
+        .filled-text6 {
+            z-index: 1;
+            font-size: var(--h1_text);
+            font-weight: 600;
+            color: var(--background_color);
+            letter-spacing: .5rem;
+            @media (max-width: 480px) {
+                font-size: var(--h2_text);
+            }
+        }
+
+        .outline-text1,
+        .outline-text2,
+        .outline-text3,
+        .outline-text4,
+        .outline-text5,
+        .outline-text6 {
+            z-index: 3;
+            font-size: var(--h1_text);
+            font-weight: 600;
+            -webkit-text-stroke-width: calc((var(--text_size)) / 3);
+            -webkit-text-stroke-color: var(--background_color);
+            color: transparent;
+            letter-spacing: .5rem;
+            @media (max-width: 480px) {
+                font-size: var(--h2_text);
+            }
+        }
+
+        .image1,
+        .image2,
+        .image3,
+        .image4,
+        .image5,
+        .image6 {
+            z-index: 2;
+            height: var(--gsap_pos);
+            width: auto;
+        }
+
+        .image1 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) / 2);
+            left: calc(var(--gsap_pos) * 2);
+            border-radius: 1rem;
+            @media (max-width: 480px) {
+                left: calc(var(--gsap_pos) / 1.5);
+            }
+        }
+
+        .image2 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 1.5 + (var(--gsap_gap)) * 1);
+            right: calc(var(--gsap_pos) * 2);
+            border-radius: 1rem;
+            @media (max-width: 480px) {
+                right: calc(var(--gsap_pos) / 1.5);
+            }
+        }
+
+        .image3 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 2.5 + (var(--gsap_gap)) * 2);
+            left: calc(var(--gsap_pos) * 2);
+            border-radius: 1rem;
+            @media (max-width: 480px) {
+                left: calc(var(--gsap_pos) / 1.5);
+            }
+        }
+
+        .image4 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 3.5 + (var(--gsap_gap)) * 3);
+            right: calc(var(--gsap_pos) * 2);
+            border-radius: 1rem;
+            @media (max-width: 480px) {
+                right: calc(var(--gsap_pos) / 1.5);
+            }
+        }
+
+        .image5 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 4.5 + (var(--gsap_gap)) * 4);
+            left: calc(var(--gsap_pos) * 2);
+            border-radius: 1rem;
+            @media (max-width: 480px) {
+                left: calc(var(--gsap_pos) / 1.5);
+            }
+        }
+
+        .image6 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 5.5 + (var(--gsap_gap)) * 5);
+            right: calc(var(--gsap_pos) * 2);
+            border-radius: 1rem;
+            @media (max-width: 480px) {
+                right: calc(var(--gsap_pos) / 1.5);
+            }
+        }
+
+        .filled-text1,
+        .outline-text1 {
+            position: absolute;
+            top: var(--gsap_pos);
+            left: var(--h1_text);
+            @media (max-width: 480px) {
+                left: var(--h2_text);
+            }
+        }
+
+        .filled-text2,
+        .outline-text2 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 2 + var(--gsap_gap));
+            right: var(--h1_text);
+            @media (max-width: 480px) {
+                right: var(--h2_text);
+            }
+        }
+
+        .filled-text3,
+        .outline-text3 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 3 + (var(--gsap_gap)) * 2);
+            left: var(--h1_text);
+            @media (max-width: 480px) {
+                left: var(--h2_text);
+            }
+        }
+
+        .filled-text4,
+        .outline-text4 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 4 + (var(--gsap_gap)) * 3);
+            right: var(--h1_text);
+            @media (max-width: 480px) {
+                right: var(--h2_text);
+            }
+        }
+
+        .filled-text5,
+        .outline-text5 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 5 + (var(--gsap_gap)) * 4);
+            left: var(--h1_text);
+            @media (max-width: 480px) {
+                left: var(--h2_text);
+            }
+        }
+
+        .filled-text6,
+        .outline-text6 {
+            position: absolute;
+            top: calc((var(--gsap_pos)) * 6 + (var(--gsap_gap)) * 5);
+            right: var(--h1_text);
+            @media (max-width: 480px) {
+                right: var(--h2_text);
+            }
+        }
+
+    }
+
+
+}
+
+.room_detail_down {
+    width: 100%;
+    background-color: var(--primary_color_900);
+    padding: 4rem;
+
+    .room_detail_paragraph {
+        .detail_paragraph_title{
+            display: flex;
+            justify-content: center;
+            h1{
+                color: var(--background_color);
+                margin-bottom: 1rem;
+                letter-spacing: 2rem;
+                @media screen and (max-width: 768px) {
+                    letter-spacing: 1rem;
+                }
+            }
+        }
+        .description {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: auto;
+            width: 50%;
+            color: var(--background_color);
+            @media screen and (max-width: 1680px) {
+                width: 60%;
+            }
+            @media screen and (max-width: 1280px) {
+                width: 70%;
+            }
+            @media screen and (max-width: 768px) {
+                width: 80%;
+            }
+            @media screen and (max-width: 480px) {
+                width: 90%;
+            }
+
+            h3,
+            h4,
+            p {
+                margin-top: 1rem;
+                width: 100%;
+                @media screen and (max-width: 1280px) {
+                    margin-top: 0.5rem;
+                }
+                @media screen and (max-width: 768px) {
+                    margin-top: 0.2rem;
+                }
+                
+            }
+
+        }
+    }
+
+}
+
+.guess_you_like {
+    background-color: var(--brown_color);
+
+    .guess_container {
+        width: 60%;
+        margin: auto;
+        padding: 4rem;
+        @media screen and (max-width: 1680px) {
+            width: 70%;
+        }
+        @media screen and (max-width: 1280px) {
+            width: 70%;
+            padding: 2rem;
+        }
+        @media screen and (max-width: 768px) {
+            width: 80%;
+            padding: 1rem;
+        }
+        @media screen and (max-width: 480px) {
+            width: 90%;
+            padding: 1rem;
+        }
+        .guess_title {
+            margin: auto;
+
+            h1 {
+                text-align: center;
+                color: var(--primary_color_900);
+                @media screen and (max-width: 1280px) {
+                    font-size: var(--h2_text);
+                }
+                @media screen and (max-width: 768px) {
+                    font-size: var(--h2_text);
+                }
+            }
+        }
+
+        .guess_card_flex {
+            display: flex;
+            gap: var(--text_size);
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 1rem;
+            .guess_card {
+                margin: 3% 3%;
+                flex: 0 1 33.33%;
+                max-width: 250px;
+                min-width: 200px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                border-radius: 1rem;
+                background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.33));
+                box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.208);
+                color: var(--background_color);
+                animation: .5s ease;
+
+                &:hover{
+                    img{
+                        transform: rotate(2);
+                    }  
+                }
+                .guess_images {
+                    height: calc(var(--h1_text) * 1.5);
+                    min-height: 100px;
+                    img {
+                        width: calc(var(--h1_text) * 1.8);
+                        height: calc(var(--h1_text) * 1.8);
+                        min-width: 120px;
+                        min-height: 120px;
+                        transform: translateY(-20px);
+                        object-fit: cover;
+                        border-radius: 0.5rem;
+                    }
+                }
+
+                .guess_content {
+                    color: var(--background_color);
+                    width: 85%;
+                    margin: var(--text_size);
+                    .guess_content_title{
+                        color: var(--background_color);
+                        border-bottom: 1px solid var(--background_color);
+                        padding-bottom: 0.5rem;
+                        margin-bottom: 0.5rem;
+                        font-size: var(--h5_text);
+                        
+                        @media screen and (max-width: 768px) {
+                            font-size: var(--h4_text);
+                        }
+                    }
+                    .guess_content_subtitle{
+                        color: var(--background_color);
+                        padding-bottom: 0.5rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    
+                    
+                    .guess_content_paragragh{
+                        -webkit-line-clamp: 3;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        margin-bottom: 1rem;
+                    }
+                    .guess_content_price{
+                        position: relative;
+                        color: var(--background_color);
+                        span{
+                            font-size: var(--h5_text);
+                            @media screen and (max-width: 768px) {
+                                font-size: var(--h4_text);
+                            }
+                        }
+                        margin-bottom: 1rem;
+                    }
+                    .guess_content_seemore{
+                        display: flex;
+                        justify-content: end;
+                        a{
+                            text-decoration: none;
+                        }
+                        button{
+                            @include p_button();
+                            border-radius: 20px;
+                            width: 70px;
+                            height: 40px;
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+
+    }
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+
+@media (max-width: 1680px) {
+    :root {
+        --h1_text: 84px;
+        --h2_text: 50px;
+        --h3_text: 40px;
+        --h4_text: 28px;
+        --h5_text: 20px;
+        --subtitle_text: 16px;
+        --button_text: 14px;
+        --text_size: 14px;
+        --gsap_pos: 400px;
+        --gsap_gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --h1_text: 60px;
+        --h2_text: 46px;
+        --h3_text: 36px;
+        --h4_text: 22px;
+        --h5_text: 16px;
+        --subtitle_text: 14px;
+        --button_text: 14px;
+        --text_size: 14px;
+        --gsap_pos: 300px;
+        --gsap_gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --h1_text: 48px;
+        --h2_text: 36px;
+        --h3_text: 28px;
+        --h4_text: 20px;
+        --h5_text: 14px;
+        --subtitle_text: 14px;
+        --button_text: 12px;
+        --text_size: 12px;
+        --gsap_pos: 200px;
+        --gsap_gap: 2rem;
+    }
+}

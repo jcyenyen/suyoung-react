@@ -1,0 +1,213 @@
+// 1. 這裡導入所有要預設變數覆蓋
+// --------------------------------
+$primary: #224040;
+$secondary: #952e1f;
+
+// $btn-border-radius:0;
+
+// --------------------------------
+
+// 2. 導入bootstrap所有的樣式與預設變數
+// --------------------------------
+@import "~bootstrap/scss/bootstrap";
+
+ul {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+// --------------------------------
+
+// 3. 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+// 全站都會使用的共同樣式
+// --------------------------------
+:root {
+    //各種顏色
+    --primary_color: #224040;
+    --primary_color_900: #0a1e22;
+    --primary_color_600: #1a5252;
+    --primary_color_500: #62b6b6;
+    --secondary_color: #952e1f;
+    --error_color: #ec391e;
+    --background_color: #f2f2f2;
+    --input_color: #fff6e7;
+    --brown_color: #c1a688;
+
+    //各種文字大小
+    --h1_text: 96px;
+    --h2_text: 60px;
+    --h3_text: 48px;
+    --h4_text: 34px;
+    --h5_text: 24px;
+    --subtitle_text: 16px;
+    --button_text: 14px;
+    --text_size: 14px;
+}
+
+h1 {
+    font-size: var(--h1_text);
+}
+
+h2 {
+    font-size: var(--h2_text);
+}
+
+h3 {
+    font-size: var(--h3_text);
+}
+
+h4 {
+    font-size: var(--h4_text);
+}
+
+h5 {
+    font-size: var(--h5_text);
+}
+
+p {
+    font-size: var(--text_size);
+}
+
+@mixin p_button {
+    font-size: var(--button_text);
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--primary_color);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    border: 0;
+}
+
+// 東方神秘力量
+@mixin eastern_mistery_force {
+    width: 90%;
+    height: 100%;
+    margin: 40px auto;
+    border-radius: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+// card 專用背景
+@mixin card_background {
+    border-radius: 1rem;
+    backdrop-filter: blur(20px);
+    margin: auto;
+}
+
+//----------input&label-----------//
+/* input LABEL */
+@mixin input_label {
+    color: #999;
+    font-size: var(--subtitle_text);
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: var(--text_size);
+    top: calc(var(--text_size) * 0.7);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+/* input */
+@mixin input_style {
+    font-size: var(--subtitle_text);
+    padding: var(--text_size) var(--text_size) var(--text_size)
+        calc(var(--text_size) * 3);
+    display: block;
+    width: calc(var(--h4_text) * 10);
+    height: var(--h3_text);
+    border: none;
+    background-color: #fff6e7;
+    border-radius: var(--h3_text);
+    color: var(--primary_color);
+    &:focus,
+    &:invalid {
+        outline: 1px solid #224040;
+    }
+    &:focus ~ label,
+    &:invalid ~ label {
+        top: calc((var(--h5_text)) * (-1));
+        font-size: var(--text_size);
+        color: var(--primary_color);
+    }
+}
+
+// input 外面包一層div群組
+// 可統一使用
+.input_group {
+    position: relative;
+}
+
+// 如果要用input style 可以這樣引用
+// input {
+//     @include input_style;
+// }
+
+//如果要用label style 可以這樣引用
+// label {
+//     @include input_label;
+// }
+//----------input&label-----------//
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    &::-webkit-scrollbar {
+        background-color: #7fa9a99a;
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(36, 42, 32, 0.2);
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 1680px) {
+    :root {
+        --h1_text: 84px;
+        --h2_text: 50px;
+        --h3_text: 40px;
+        --h4_text: 28px;
+        --h5_text: 20px;
+        --subtitle_text: 16px;
+        --button_text: 14px;
+        --text_size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --h1_text: 60px;
+        --h2_text: 46px;
+        --h3_text: 36px;
+        --h4_text: 22px;
+        --h5_text: 16px;
+        --subtitle_text: 14px;
+        --button_text: 14px;
+        --text_size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --h1_text: 48px;
+        --h2_text: 36px;
+        --h3_text: 28px;
+        --h4_text: 20px;
+        --h5_text: 14px;
+        --subtitle_text: 14px;
+        --button_text: 12px;
+        --text_size: 12px;
+    }
+}
+
+// --------------------------------

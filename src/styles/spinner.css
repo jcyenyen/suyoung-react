@@ -1,0 +1,149 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+div.spinner-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 40px;
+    background-color: var(--primary_color_600);
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    z-index: 999;
+    transition: opacity 0.5s;
+}
+
+.spinner-text.fade-out {
+    opacity: 0;
+}
+
+.spinner-text {
+    position: absolute;
+    width: 450px;
+    left: 50%;
+    margin-left: -225px;
+    height: 40px;
+    top: 50%;
+    margin-top: -20px;
+}
+
+p.spinner-text {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    color: var(--primary_color);
+    font-size: 5rem;
+}
+
+.word {
+    position: absolute;
+    width: 220px;
+    opacity: 0;
+    left: 57%;
+    bottom: 48%;
+    z-index: 999;
+}
+
+@media screen and (max-width: 1777px) {
+    .word {
+        left: 58%;
+    }
+}
+
+@media screen and (max-width: 1649px) {
+    .word {
+        left: 60%;
+    }
+}
+
+@media screen and (max-width: 1337px) {
+    .word {
+        left: 62%;
+    }
+}
+
+@media screen and (max-width: 1136px) {
+    .word {
+        left: 64%;
+    }
+}
+
+@media screen and (max-width: 961px) {
+    .word {
+        left: 66%;
+    }
+}
+
+@media screen and (max-width: 849px) {
+    .word {
+        left: 68%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .word {
+        left: 34%;
+        bottom: 35%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .word {
+        left: 28%;
+        bottom: 35%;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .word {
+        left: 18%;
+        bottom: 35%;
+    }
+}
+
+.letter {
+    display: inline-block;
+    position: relative;
+    float: left;
+    transform: translateZ(100px);
+    transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+    transform: rotateX(-90deg);
+}
+
+.letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wisteria {
+    color: #ec391e;
+}
+
+.belize {
+    color: #2980b9;
+}
+
+.pomegranate {
+    color: #fff6e7;
+}
+
+.green {
+    color: #16a085;
+}
+
+.midnight {
+    color: #62b6b6;
+}

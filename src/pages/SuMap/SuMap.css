@@ -1,0 +1,558 @@
+
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+
+.yingbenbu,.xingkong,.qingzi1,.qingzi2,.buqiuren,.buqiuren2,.buqiuren3,.luyingche1,.luyingche2, .wangmei1, .wangmei2,.wangmei3{
+    display: none;
+}
+
+.aligncontent_mb{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.svg_box{
+    display: none;
+}
+
+.svg_box_mobile{
+    height: 90vh;
+    width: 300px;
+    height: 240px;
+    background-color: #BCD38D;
+    background-image: url(../../../public/map_imgs/beautyarea.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* margin-left: 30px; */
+}
+
+.svg_box_mobile1{
+    height: 90vh;
+    width: 300px;
+    height: 200px;
+    background-color: #BCD38D;
+    background-image: url(../../../public/map_imgs/camvanarea.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* margin-left: 30px; */
+}
+
+.svg_box_mobile2{
+    height: 90vh;
+    width: 300px;
+    height: 200px;
+    background-color: #BCD38D;
+    background-image: url(../../../public/map_imgs/yourself.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* margin-left: 30px; */
+}
+.svg_box_mobile3{
+    height: 90vh;
+    width: 300px;
+    height: 200px;
+    background-color: #BCD38D;
+    background-image: url(../../../public/map_imgs/family.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* margin-left: 30px; */
+}
+  
+  .map_content{
+      display: flex;
+      justify-content: start;
+      height: 100vh;
+  }
+  
+  .map_content_left{
+   display: none;
+  
+  }
+
+  .areacard_mobile{
+        display: flex;
+        width: 300px;
+        height: 330px;
+        text-align: center;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 1.5rem;
+        /* margin-left: 40px; */
+        padding-top: 20px;
+    }
+
+    .titlearea_mobile{
+        display: flex;
+       /* padding-left: 50px; */
+       padding-bottom: 20px;
+    }
+
+    .titlearea_mobile1{
+        display: flex;
+        /* padding-left: 50px; */
+        padding-bottom: 20px;
+    }
+
+    .areacard_mobile h5{
+        display: flex;
+       padding: 20px;
+
+    }
+
+    .map_btn_mobile{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 200px;
+        height: 35px;
+        background-color: var(--secondary_color);
+        border-color: var(--secondary_color);
+        border-radius: 1.25rem;
+        padding-left: 40px;
+        color: white;
+        margin-left: 50px;
+    
+    }
+
+@media screen and (min-width:800px) {
+
+    .aligncontent_mb,.svg_box_mobile,.svg_box_mobile1,.svg_box_mobile2,.svg_box_mobile3,.map_content,.map_content_left,.areacard_mobile,.titlearea_mobile,.titlearea_mobile1,.map_btn_mobile{
+        display: none;
+    }
+
+.svg_box{
+  height: 90vh;
+  width: 100%;
+  background-color: #BCD38D;
+  background-image: url('../../../public/map_imgs/mapfinal187503.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+
+}
+.svg_box_mobile{
+    display: none;
+    
+}
+
+.map_content{
+    display: flex;
+    justify-content: start;
+    height: 100vh;
+}
+
+.map_content_left{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 255px;
+    height: 550px;
+    margin-left: 30px;
+    margin-top: 150px;
+    border-radius:1.5rem;
+    background-color: var(--input_color);
+    padding-top: 30px;
+    padding-bottom: 10px;
+    opacity: 1;
+
+}
+
+.descripe_content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    padding-left: 50px;
+    
+}
+
+.link_btn{
+    background-color: #224040;
+    border-radius: 1.25rem;
+    width: 160px;
+    height: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.link_btn:hover{
+    background-color: var(--secondary_color);
+    animation-name: wobble-horizontal;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: 1;
+        cursor: pointer;
+}
+
+@keyframes wobble-horizontal {
+	16.65% {
+		transform: translateX(8px);
+	}
+
+	33.3% {
+		transform: translateX(-6px);
+	}
+
+	49.95% {
+		transform: translateX(4px);
+	}
+
+	66.6% {
+		transform: translateX(-2px);
+	}
+
+	83.25% {
+		transform: translateX(1px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.descripe_content  li{
+    list-style-type:none;
+    padding: 13px;
+    color: white;
+    letter-spacing: 0.15rem;
+    font-size: var(--subtitle_text);
+}
+
+.descripe_content  a{
+    text-decoration: none;
+
+}
+
+.popup_window{
+    display: flex;
+    width: 1200px;
+    height: 600px;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.window_des{
+    display: flex;
+    width: 350px;
+    height: 500px;
+    text-align: center;
+    flex-direction: column;
+    background-color: #ccc;
+    border-radius: 1.5rem;
+}
+
+.window_des:hover{
+margin-top: 0%;
+box-shadow: 0 0 20px 2px #747373;
+transition: all 0.5s;
+cursor: pointer;
+}
+
+.des_content_wangmei{
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding-left: 45px;
+}
+
+.des_content_wangmei a{
+    text-decoration: none;
+
+}
+
+.des_picture_wangmei1{
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding-top: 80px;
+    padding-left: 45px;
+}
+
+.des_picture_buqiuren1{
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding-top: 55px;
+    padding-left: 45px;
+}
+
+.des_picture_family2{
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding-top: 85px;
+    padding-left: 45px;
+}
+
+
+.des_picture_wangmei2{
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding-top: 40px;
+    padding-left: 35px;
+}
+
+.des_picture_wangmei3{
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding-top: 55px;
+    padding-left: 50px;
+}
+
+
+.popup_content_right{
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+}
+
+.popup_exit_btn{
+    background-color: var(--secondary_color);
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 400;
+    border-color: var(--secondary_color);
+}
+
+.seemore_map{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 35px;
+    background-color: var(--secondary_color);
+    border-color: var(--secondary_color);
+    border-radius: 1.25rem;
+    padding-left: 60px;
+    color: white;
+
+}
+
+.seemore_map_booking{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    height: 35px;
+    background-color: var(--secondary_color);
+    border-color: var(--secondary_color);
+    border-radius: 1.25rem;
+    padding-left: 30px;
+    color: white;
+    margin-left: 50px;
+
+}
+
+.map_base{
+    width: 1500px;
+    height: 800px;
+    position: relative;
+}
+
+.yingbenbu{
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    left: 110px;
+    bottom: 170px;
+    display: block;
+}
+
+.yingbenbu:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.xingkong{
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    left: 140px;
+    bottom: 400px;
+    display: block;
+}
+
+.xingkong:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.qingzi1{
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    left: 360px;
+    bottom: 350px;
+    display: block;
+}
+
+.qingzi1:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.qingzi2{
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    left: 590px;
+    bottom: 430px;
+    display: block;
+}
+
+.qingzi2:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.buqiuren{
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    left: 680px;
+    bottom: 280px;
+    display: block;
+}
+
+.buqiuren:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+   .buqiuren2{
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    right: 370px;
+    bottom: 325px;
+    display: block;
+}
+
+.buqiuren2:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.buqiuren3{
+    position: absolute;
+    width: 120px;
+    height: 100px;
+    left: 810px;
+    bottom: 355px;
+    display: block;
+}
+
+.buqiuren3:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+   .luyingche1{
+    position: absolute;
+    left: 620px;
+    bottom: 105px;
+    display: block;
+}
+
+   .luyingche1:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+   .luyingche2{
+    position: absolute;
+    left: 380px;
+    bottom: 35px;
+    display: block;
+}
+
+   .luyingche2:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.wangmei1{
+    position: absolute;
+    width: 180px;
+    height: 100px;
+    right:20px;
+    bottom: 180px;
+    display: block;
+}
+
+.wangmei1:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.wangmei2{
+    position: absolute;
+    width: 150px;
+    height: 130px;
+    right: 270px;
+    bottom: 110px;
+    display: block;
+}
+
+.wangmei2:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.wangmei3{
+    position: absolute;
+    width: 180px;
+    height: 100px;
+    right:-25px;
+    bottom: 40px;
+    display: block;
+}
+
+.wangmei3:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
+    cursor: pointer;
+   }
+
+.Backdrop_shadow{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+}
+
+  /* # sourceMappingURL=style.css.map */
+
+ 
+
+  
+
+ 
+  

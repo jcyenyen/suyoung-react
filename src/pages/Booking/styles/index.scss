@@ -1,0 +1,2030 @@
+@import "rsuite/dist/rsuite.css";
+
+@media screen and (max-width: 2560px) {
+    :root {
+        //各種顏色
+        --primary_color: #224040;
+        --primary_color_900: #0A1E22;
+        --primary_color_600: #1A5252;
+        --primary_color_500: #62B6B6;
+        --secondary_color: #952E1F;
+        --error_color: #EC391E;
+        --background_color: #F2F2F2;
+        --input_color: #FFF6E7;
+        --brown_color: #c1a688;
+        //各種文字大小
+        --h1_text: 96px;
+        --h2_text: 60px;
+        --h3_text: 48px;
+        --h4_text: 34px;
+        --h5_text: 24px;
+        --subtitle_text: 18px;
+        --button_text: 14px;
+        --text_size: 14px;
+    }
+
+    h1 {
+        font-size: var(--h1_text);
+    }
+
+    h2 {
+        font-size: var(--h2_text);
+    }
+
+    h3 {
+        font-size: var(--h3_text);
+    }
+
+    h4 {
+        font-size: var(--h4_text);
+    }
+
+    h5 {
+        font-size: var(--h5_text);
+    }
+
+    p {
+        font-size: var(--text_size);
+    }
+
+
+    @mixin p_button {
+        font-size: var(--button_text);
+        border-radius: 15px;
+        width: 100px;
+        height: 30px;
+        background-color: var(--primary_color);
+        color: white;
+        text-align: center;
+        justify-content: center;
+        border: none;
+        transition: .3s ease;
+
+        &:hover {
+            transform: scale(1.3);
+            background-color: var(--primary_color_600);
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.284);
+            transform: translate(-3px, -3px);
+        }
+
+        &:active {
+            transform: scale(0.98);
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+            color: var(--brown_color);
+        }
+    }
+
+    // 東方神秘力量
+    @mixin eastern_mistery_force {
+        width: 85%;
+        height: 100%;
+        margin: 40px auto;
+        border-radius: 1.5rem;
+        backdrop-filter: blur(20px);
+    }
+
+    // card 專用背景
+    @mixin card_background {
+        border-radius: 1rem;
+        backdrop-filter: blur(20px);
+        margin: auto;
+    }
+
+    /* input LABEL */
+    @mixin input_label {
+        color: #999;
+        font-size: var(--subtitle_text);
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: var(--text_size);
+        top: calc(var(--text_size)*0.7);
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+
+    }
+
+    /* input */
+    @mixin input_style {
+        font-size: var(--subtitle_text);
+        padding: var(--text_size) var(--text_size) var(--text_size) calc(var(--text_size)*3);
+        display: block;
+        width: calc(var(--h4_text)*10);
+        height: var(--h3_text);
+        border: none;
+        background-color: #fff6e7;
+        border-radius: var(--h3_text);
+        color: var(--primary_color);
+
+        &:focus,
+        &:invalid {
+            outline: 1px solid #224040;
+        }
+
+        &:focus~label,
+        &:invalid~label {
+            top: calc((var(--h5_text))*(-1));
+            font-size: var(--text_size);
+            color: var(--primary_color);
+        }
+    }
+
+    // input 外面包一層div群組
+    // 可統一使用
+    .input_group {
+        position: relative;
+        margin-top: var(--h5_text);
+    }
+
+
+    @keyframes bookingArea {
+        0% {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: none;
+            opacity: 1;
+        }
+    }
+
+    @keyframes cardArea {
+        0% {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: none;
+            opacity: 1;
+        }
+    }
+
+    @keyframes filterArea {
+        0% {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: none;
+            opacity: 1;
+        }
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        width: 100%;
+        height: 100%;
+        font-size: 14px;
+        // overflow: hidden;
+
+
+
+        .Booking_container {
+            @include eastern_mistery_force;
+            background-color: rgba($color: #fff, $alpha: 0.4);
+            padding: var(--subtitle_text);
+            height: 87vh;
+            margin-top: 0;
+            // overflow: hidden;
+
+
+            .booking_area_container {
+                .booking_area {
+                    position: sticky;
+                    top: 0;
+                    animation: bookingArea 1s ease;
+                    width: 100%;
+                    height: 10%;
+                    @include card_background();
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 1%;
+
+                    @media screen and (max-width:768px) {
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                    }
+
+                    .dateRangePicker {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: calc(var(--h1_text) * 3);
+
+                        @media screen and (max-width: 768px) {
+                            width: 100%;
+                            margin-top: 0.5rem;
+                        }
+                    }
+
+                    .booking_result_date {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include card_background();
+
+                        span {
+                            font-size: var(--subtitle_text);
+                        }
+
+                        p {
+                            margin: 0;
+                            padding: 0.3rem;
+                        }
+
+                        @media screen and (max-width:768px) {
+                            display: none;
+                        }
+
+
+                    }
+
+                    .booking_person_area {
+                        display: flex;
+
+                        .booking_person {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            padding: 1rem;
+                            width: 15rem;
+
+                            @media screen and (max-width: 768px) {
+                                width: 100%;
+                                margin-top: 0.5rem;
+                                padding: 0.5rem;
+                            }
+
+                            label {
+                                margin: auto;
+                            }
+
+                            input {
+                                text-align: center;
+                                font-size: var(--subtitle_text);
+                                display: block;
+                                border: none;
+                                background-color: #fff6e7;
+                                color: var(--primary_color);
+                            }
+
+                            .rs-input-number-btn-group-vertical {
+                                display: none;
+                            }
+                        }
+                    }
+
+
+
+
+                    .booking_result {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include card_background();
+
+                        @media screen and (max-width:768px) {
+                            display: none;
+                        }
+
+                        p {
+                            margin: 0;
+                            padding: 0.3rem;
+                        }
+
+                        span {
+                            font-size: var(--subtitle_text);
+                            color: var(--primary_color_900);
+                        }
+
+                        .booking_result_datePicer {
+                            display: flex;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+    .room_area_flex {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 1rem;
+        overflow-y: auto;
+        height: 88%;
+        scroll-behavior: smooth;
+
+        @media screen and (max-width: 768px) {
+            margin-top: 1rem;
+            display: block;
+            overflow: hidden;
+        }
+
+        .room_filter_container {
+            animation: filterArea 1s ease;
+            width: 30%;
+            height: 100%;
+            margin-top: 0;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+
+            &::-webkit-scrollbar {
+                background-color: #7fa9a94c;
+                width: 10px;
+                border-radius: 5px;
+
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(36, 42, 32, 0.2);
+                border-radius: 5px;
+            }
+
+            @media screen and (max-width:768px) {
+                width: 100%;
+                height: 10%;
+                overflow-y: visible;
+            }
+
+            .room_filter_area {
+
+                @include card_background();
+
+
+                @media screen and (max-width: 768px) {
+                    z-index: 3;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .room_filter_btn {
+                    width: 100%;
+                    margin: auto;
+                    display: none;
+
+
+                    @media screen and (max-width: 768px) {
+                        padding: 0;
+                        display: block;
+                    }
+
+                    .room_btn_flex {
+                        display: flex;
+                        justify-content: space-around;
+                        width: 100%;
+
+                        button {
+                            @include p_button();
+                            margin: 0 0.2rem;
+
+                            &:hover {
+                                background-color: var(--primary_color);
+                                box-shadow: none;
+                                transform: none;
+                            }
+
+                            &:active {
+                                transform: scale(0.98);
+                                /* Scaling button to 0.98 to its original size */
+                                box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+                                /* Lowering the shadow */
+                                color: var(--brown_color);
+                            }
+                        }
+                    }
+                }
+
+                .room_title {
+                    font-size: var(--h5_text);
+                    width: 100%;
+                    padding-left: 1.5rem;
+                    padding-bottom: 1rem;
+                    padding-right: 1.5rem;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+
+                    button {
+                        &:nth-child(1) {
+                            background-color: transparent;
+                            border: none;
+                            letter-spacing: 0.1rem;
+                        }
+
+                        &:nth-child(2) {
+                            background-color: transparent;
+                            color: #999;
+                            transition: 0.5s ease;
+
+                            &:hover {
+                                color: var(--primary_color_600);
+                                transform: scale(1.3);
+                                filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.284));
+                                transform: translate(-3px, -3px);
+                            }
+                            &:active {
+                                transform: scale(0.98);
+                                filter: drop-shadow(3px 2px 22px 1px rgba(0, 0, 0, 0.24)) ;
+                                color: var(--primary_color);
+                            }
+                        }
+
+
+                    }
+                }
+
+                .room_filter_quick{
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    padding: 1rem 6px 0;
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                    }
+                    .roomSearch_area{
+                        
+                        .roomSearch_input{
+                            width: 85%;
+                            display: flex;
+                            margin: auto;
+                            margin-bottom: 1rem;
+                            
+                            .SearchInput{
+                                @include input_style();
+                                width: 75%;
+                                height: var(--h5_text);
+                                margin-right: 1rem;
+                                padding-left: 1rem;
+                                font-size: var(--text_size);
+                                text-align: center;
+                                &::placeholder{
+                                    color: #ccc;
+                                }
+                                &:focus::placeholder{
+                                    color: transparent;
+                                }
+                        }
+                            .SearchButton{
+                                @include p_button();
+                                width: 20%;
+                                height: var(--h4_text);
+                                
+                            }
+                            
+                        }
+                        .roomSearch_check{
+                            width: 85%;
+                            margin: auto;
+                            display: flex;
+                            [type="checkbox"]:checked,
+                            [type="checkbox"]:not(:checked) {
+                                position: absolute;
+                                width: 0;
+                                height: 0;
+                                visibility: hidden;
+                            }
+
+                            .checkbox-priceUp{
+                                &:checked+label,
+                                &:not(:checked)+label {
+                                    position: relative;
+                                    top: 0;
+                                    display: inline-block;
+                                    width: 100%;
+
+                                    padding: var(--subtitle_text) 6px;
+                                    font-size: var(--text_size);
+                                    line-height: var(--text_size);
+                                    letter-spacing: 3px;
+                                    margin: 3px;
+                                    text-align: center;
+                                    border-radius: 1rem;
+                                    overflow: hidden;
+                                    cursor: pointer;
+                                    color: #999;
+                                    -webkit-transition: all 300ms linear;
+                                    transition: all 300ms linear;
+                                }
+                                &:not(:checked)+label {
+                                    background-color: var(--background_color);
+                                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    
+                                }
+                                &:checked+label {
+                                    background-color: var(--primary_color_600);
+                                    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                                    color: var(--background_color);
+                                }
+                                &:not(:checked)+label:hover {
+                                    color: var(--primary_color_600);
+                                    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                                }
+                            }
+
+                           
+
+                            
+
+                            
+
+                            
+                        }
+                    }
+                }
+                .room_filter_roomType {
+
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    padding: 1rem 6px 0;
+
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                    }
+
+
+
+                    .roomType_flex {
+                        display: flex;
+                        width: 100%;
+
+                        @media screen and (max-width: 1680px) {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            width: 100%;
+                        }
+
+                        [type="checkbox"]:checked,
+                        [type="checkbox"]:not(:checked) {
+                            position: absolute;
+                            width: 0;
+                            height: 0;
+                            visibility: hidden;
+                        }
+
+                        .checkbox-tools:checked+label,
+                        .checkbox-tools:not(:checked)+label {
+                            position: relative;
+                            top: 0;
+                            display: inline-block;
+                            width: 100%;
+
+                            padding: var(--subtitle_text) 6px;
+                            font-size: var(--text_size);
+                            line-height: var(--text_size);
+                            letter-spacing: 3px;
+                            margin: 3px;
+                            text-align: center;
+                            border-radius: 1rem;
+                            overflow: hidden;
+                            cursor: pointer;
+                            color: #999;
+                            -webkit-transition: all 300ms linear;
+                            transition: all 300ms linear;
+
+                            @media screen and (max-width:1680px) {
+                                width: 40%;
+                                margin: 0.3rem;
+                            }
+                        }
+
+                        .checkbox-tools:not(:checked)+label {
+                            background-color: var(--background_color);
+                            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+                        }
+
+                        .checkbox-tools:checked+label {
+                            background-color: var(--primary_color_600);
+                            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                            color: var(--background_color);
+                        }
+
+                        .checkbox-tools:not(:checked)+label:hover {
+                            color: var(--primary_color_600);
+                            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                        }
+
+                        .checkbox-tools:checked+label .fa-solid,
+                        .checkbox-tools:not(:checked)+label .fa-solid {
+                            font-size: var(--h5_text);
+                            line-height: var(--h5_text);
+                            display: block;
+                            padding-bottom: 10px;
+                        }
+                    }
+
+
+
+
+                }
+
+                .room_filter_roomSelect {
+
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    padding: 1rem 6px;
+
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                    }
+
+
+
+                    .roomSelect_area {
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+
+                        @media screen and (max-width: 1680px) {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            width: 100%;
+                        }
+
+                        [type="checkbox"]:checked,
+                        [type="checkbox"]:not(:checked) {
+                            position: absolute;
+                            width: 0;
+                            height: 0;
+                            visibility: hidden;
+                        }
+
+                        .checkbox-roomSelect:checked+label,
+                        .checkbox-roomSelect:not(:checked)+label {
+                            position: relative;
+                            top: 0;
+                            display: inline-block;
+                            width: 23%;
+
+                            padding: var(--subtitle_text) 6px;
+                            font-size: var(--text_size);
+                            line-height: var(--text_size);
+                            letter-spacing: 3px;
+                            margin: 3px;
+                            text-align: center;
+                            border-radius: 1rem;
+                            overflow: hidden;
+                            cursor: pointer;
+                            color: #999;
+                            -webkit-transition: all 300ms linear;
+                            transition: all 300ms linear;
+
+                            @media screen and (max-width:1680px) {
+                                width: 40%;
+                                margin: 0.3rem;
+                            }
+                        }
+
+                        .checkbox-roomSelect:not(:checked)+label {
+                            background-color: var(--background_color);
+                            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+                        }
+
+                        .checkbox-roomSelect:checked+label {
+                            background-color: var(--primary_color_600);
+                            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                            color: var(--background_color);
+                        }
+
+                        .checkbox-roomSelect:not(:checked)+label:hover {
+                            color: var(--primary_color_600);
+                            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                        }
+                    }
+
+
+
+
+                }
+
+                .room_filter_price {
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    padding: 1rem 6px;
+
+                    .room_title {
+                        padding-bottom: 1rem;
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                    }
+
+                    .rs-row {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 1rem;
+                        margin: 0;
+
+                        .rs-input-group {
+                            .rs-input {
+                                text-align: center;
+                            }
+                        }
+
+                        .rs-slider {
+                            .rs-slider-bar {
+                                .rs-slider-progress-bar {
+                                    background-color: var(--primary_color_500);
+                                }
+                            }
+                        }
+
+                        .rs-slider-handle::before {
+                            border: 2px solid var(--primary_color);
+                            box-shadow: none;
+                        }
+
+                        .custom-slider {
+                            margin-top: 18px;
+
+                            .active {
+                                clip-path: none;
+                                box-shadow: none;
+                            }
+
+                            .rs-slider-handle {
+                                top: -6px;
+                                background-color: var(--primary_color);
+                                text-align: center;
+                                padding: 3px;
+                                margin-left: -16px;
+                                cursor: pointer;
+                            }
+
+                            &.rs-slider-dragging .rs-slider-handle,
+                            &.rs-slider-dragging .rs-slider-handle:hover {
+                                box-shadow: none;
+                                transform: scale(1.2);
+                            }
+                        }
+
+
+                    }
+
+                }
+
+                .room_filter_tag {
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    padding: 1rem 6px;
+
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                    }
+
+                    /*  把預設勾選區藏起來 */
+                    [type="checkbox"]:checked,
+                    [type="checkbox"]:not(:checked) {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        visibility: hidden;
+                    }
+
+
+                    .checkbox-booking {
+
+                        // 建立 label 初始樣式
+                        &:checked+label,
+                        &:not(:checked)+label {
+                            top: 0;
+                            position: relative;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 6px var(--subtitle_text);
+                            font-size: var(--text_size);
+                            line-height: var(--subtitle_text);
+                            letter-spacing: 2px;
+                            margin: 0 6px var(--subtitle_text) 6px;
+                            text-align: center;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            color: var(--background_color);
+                            text-transform: uppercase;
+                            background-color: var(--primary_color_900);
+
+
+                        }
+
+                        // checkbox 點擊前的lebal 的偽元素 before
+                        &:not(:checked)+label {
+                            &::before {
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-image: linear-gradient(138deg,
+                                        var(--input_color),
+                                        var(--primary_color_500));
+                                transition: all 0.5s linear;
+
+                            }
+
+                            &:hover::before {
+                                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                            }
+
+                            // checkbox 點擊前的lebal 的偽元素 after
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-color: var(--primary_color_900);
+                                transition: all 0.5s linear;
+
+                            }
+
+                            // 文字的初始設定
+                            .text {
+                                position: relative;
+                                display: inline-block;
+                                opacity: 0.6;
+                                font-size: var(--text_size);
+
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    width: 0;
+                                    left: 0;
+                                    bottom: -10%;
+                                    margin-top: -1px;
+                                    height: 2px;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    z-index: 2;
+                                    width: 0;
+                                    transition: all 0.5s linear;
+                                }
+                            }
+                        }
+
+                        //checkbox 點擊後的lebal 
+                        &:checked+label {
+                            background-color: var(--primary_color_600);
+
+                            // 偽元素 before
+                            &::before {
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-image: linear-gradient(138deg,
+                                        var(--input_color),
+                                        var(--primary_color_500));
+                                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                                transition: all 0.5s linear;
+                            }
+
+                            //偽元素 after
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: 2;
+                                background-color: var(--primary_color_600);
+                                opacity: 0;
+                                transition: all 0.5s linear;
+                            }
+
+                            .text {
+                                position: relative;
+                                display: inline-block;
+                                z-index: 2;
+                                transition: all 0.5s linear;
+
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    left: 0;
+                                    bottom: -10%;
+                                    margin-top: -1px;
+                                    height: 2px;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    z-index: 2;
+                                    width: 100%;
+                                    transition: all 0.5s linear;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                .room_filter_people_say {
+                    width: 100%;
+                    border-radius: 0.8rem;
+                    padding: 1rem 6px;
+
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                    }
+
+                    [type="checkbox"]:checked,
+                    [type="checkbox"]:not(:checked) {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        visibility: hidden;
+                    }
+
+                    .checkbox-people {
+
+                        // 建立 label 初始樣式
+                        &:checked+label,
+                        &:not(:checked)+label {
+                            position: relative;
+                            top: 0;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 6px var(--subtitle_text);
+                            font-size: var(--text_size);
+                            line-height: var(--subtitle_text);
+                            letter-spacing: 2px;
+                            margin: 0 6px var(--subtitle_text) 6px;
+                            text-align: center;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            color: var(--background_color);
+                            text-transform: uppercase;
+                            background-color: var(--primary_color_900);
+                        }
+
+                        // checkbox 點擊前的lebal 的偽元素 before
+                        &:not(:checked)+label {
+                            &::before {
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-image: linear-gradient(138deg,
+                                        var(--input_color),
+                                        var(--primary_color_500));
+                                transition: all 0.5s linear;
+
+                            }
+
+                            &:hover::before {
+                                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                            }
+
+                            // checkbox 點擊前的lebal 的偽元素 after
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-color: var(--primary_color_900);
+                                transition: all 0.5s linear;
+
+                            }
+
+                            // 文字的初始設定
+                            .text {
+                                position: relative;
+                                display: inline-block;
+                                opacity: 0.6;
+
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    width: 0;
+                                    left: 0;
+                                    bottom: -10%;
+                                    margin-top: -1px;
+                                    height: 2px;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    z-index: 2;
+                                    width: 0;
+                                    transition: all 0.5s linear;
+                                }
+                            }
+                        }
+
+                        //checkbox 點擊後的lebal 
+                        &:checked+label {
+                            background-color: var(--primary_color_600);
+
+                            // 偽元素 before
+                            &::before {
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-image: linear-gradient(138deg,
+                                        var(--input_color),
+                                        var(--primary_color_500));
+                                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                                transition: all 0.5s linear;
+                            }
+
+                            //偽元素 after
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: 2;
+                                background-color: var(--primary_color_600);
+                                opacity: 0;
+                                transition: all 0.5s linear;
+                            }
+
+                            .text {
+                                position: relative;
+                                display: inline-block;
+                                z-index: 2;
+                                transition: all 0.5s linear;
+
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    left: 0;
+                                    bottom: -10%;
+                                    margin-top: -1px;
+                                    height: 2px;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    z-index: 2;
+                                    width: 100%;
+                                    transition: all 0.5s linear;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        .room_card_flex {
+            width: 70%;
+            margin-right: 2rem;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                background-color: #7fa9a94c;
+                width: 10px;
+                border-radius: 5px;
+
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(36, 42, 32, 0.2);
+                border-radius: 5px;
+            }
+
+            @media screen and (max-width:768px) {
+                width: 100%;
+
+                margin: auto;
+                margin-top: 0.5rem;
+                overflow-y: auto;
+                height: 75%;
+
+                &::-webkit-scrollbar {
+                    background-color: #7fa9a94c;
+                    width: 10px;
+                    border-radius: 5px;
+
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 5px;
+                    background-color: rgba(36, 42, 32, 0.2);
+                }
+            }
+
+            .emptyRoomSearch {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h5 {
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+
+            // 房間卡片
+            .room_card_area {
+                animation: cardArea 1s ease;
+                width: 100%;
+                @include card_background();
+
+                margin-bottom: 1rem;
+                display: flex;
+
+                @media screen and (max-width:768px) {
+                    display: block;
+                }
+
+                .room_card_img_area {
+                    width: 60%;
+                    padding: 2rem;
+                    @include card_background();
+
+                    @media screen and (max-width:768px) {
+                        width: 100%;
+                        padding: 1rem;
+                    }
+
+
+
+                    .room_card_img {
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 1rem;
+                        }
+                    }
+
+                }
+
+                .room_card_content {
+                    width: 40%;
+                    height: 100%;
+                    @include card_background();
+                    margin-top: 2rem;
+
+                    @media screen and (max-width:768px) {
+                        width: 100%;
+                        margin-top: 0rem;
+                    }
+
+                    .room_card_title,
+                    .room_card_subtitle {
+                        width: 85%;
+                        margin: auto;
+                        padding-bottom: 1rem;
+
+                        @media screen and (max-width:768px) {
+                            padding-bottom: 0.5rem;
+                        }
+
+                    }
+
+                    .room_card_tag {
+                        width: 85%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+                        margin: auto;
+                        padding-bottom: 1rem;
+
+                        @media screen and (max-width:768px) {
+                            padding-bottom: 0rem;
+                        }
+
+                        [type="checkbox"]:checked,
+                        [type="checkbox"]:not(:checked) {
+                            position: absolute;
+                            width: 0;
+                            height: 0;
+                            visibility: hidden;
+                        }
+                        
+
+                        .room_card_tag_btn {
+                            
+                        // 建立 label 初始樣式
+                        &:checked+label,
+                        &:not(:checked)+label {
+                            position: relative;
+                            top: 0;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 6px var(--subtitle_text);
+                            font-size: var(--text_size);
+                            line-height: var(--subtitle_text);
+                            letter-spacing: 2px;
+                            margin: 0 6px var(--subtitle_text) 6px;
+                            text-align: center;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            color: var(--background_color);
+                            text-transform: uppercase;
+                            background-color: var(--primary_color_900);
+                        }
+
+                        // checkbox 點擊前的lebal 的偽元素 before
+                        &:not(:checked)+label {
+                            &::before {
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-image: linear-gradient(138deg,
+                                        var(--input_color),
+                                        var(--primary_color_500));
+                                transition: all 0.5s linear;
+
+                            }
+
+                            &:hover::before {
+                                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                            }
+
+                            // checkbox 點擊前的lebal 的偽元素 after
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-color: var(--primary_color_900);
+                                transition: all 0.5s linear;
+
+                            }
+
+                            // 文字的初始設定
+                            .text {
+                                position: relative;
+                                display: inline-block;
+                                opacity: 0.6;
+
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    width: 0;
+                                    left: 0;
+                                    bottom: -10%;
+                                    margin-top: -1px;
+                                    height: 2px;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    z-index: 2;
+                                    width: 0;
+                                    transition: all 0.5s linear;
+                                }
+                            }
+                        }
+
+                        //checkbox 點擊後的lebal 
+                        &:checked+label {
+                            background-color: var(--primary_color_600);
+
+                            // 偽元素 before
+                            &::before {
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-image: linear-gradient(138deg,
+                                        var(--input_color),
+                                        var(--primary_color_500));
+                                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                                transition: all 0.5s linear;
+                            }
+
+                            //偽元素 after
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: 2;
+                                background-color: var(--primary_color_600);
+                                opacity: 0;
+                                transition: all 0.5s linear;
+                            }
+
+                            .text {
+                                position: relative;
+                                display: inline-block;
+                                z-index: 2;
+                                transition: all 0.5s linear;
+
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    left: 0;
+                                    bottom: -10%;
+                                    margin-top: -1px;
+                                    height: 2px;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    z-index: 2;
+                                    width: 100%;
+                                    transition: all 0.5s linear;
+                                }
+                            }
+                        }
+
+
+                        }
+                    }
+
+                    .room_card_Price {
+                        display: flex;
+                        width: 80%;
+                        justify-content: space-evenly;
+                        align-items: baseline;
+                        margin: 0.5rem auto;
+                        border-bottom: 1px solid var(--primary_color_900);
+                        padding: 0.5rem;
+
+                        p,
+                        h4 {
+                            margin: 0;
+                        }
+                    }
+
+                    .room_card_button_area {
+                        width: 85%;
+                        margin: auto;
+                        padding: var(--h5_text) 0;
+                        display: flex;
+                        justify-content: end;
+
+                        .room_card_btn_area {
+                            a {
+                                text-decoration: none;
+                            }
+
+                            .room_card_button {
+                                display: block;
+                                @include p_button;
+                                width: 130px;
+                                height: 40px;
+                                border-radius: 50px;
+                                margin: auto;
+
+                                span {
+                                    letter-spacing: 0.5rem;
+                                    text-align: center;
+                                }
+                            }
+                        }
+
+
+                        [type="checkbox"]:checked,
+                        [type="checkbox"]:not(:checked) {
+                            position: absolute;
+                            width: 0;
+                            height: 0;
+                            visibility: hidden;
+                        }
+
+                        .keep_button {
+                            margin-right: 1rem;
+                            margin-left: 6rem;
+                            display: flex;
+                            align-items: center;
+
+                            @media screen and (max-width:768px) {
+                                margin-left: 2rem;
+                            }
+
+                            .checkbox-tools:checked+label,
+                            .checkbox-tools:not(:checked)+label {
+                                position: relative;
+                                display: inline-block;
+                                width: 100%;
+                                top: 0;
+                                padding: 0;
+                                font-size: var(--h5_text);
+                                cursor: pointer;
+                                color: var(--primary_color);
+                                transition: all 300ms linear;
+
+                            }
+
+
+                        }
+                    }
+                }
+            }
+        }
+
+        // 空房提醒文字
+        .emptyRoomFilter {
+            width: 70%;
+            margin-right: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media screen and (max-width:768px) {
+                width: 100%;
+                height: 100%;
+                overflow-y: visible;
+            }
+
+            h5 {
+                text-align: center;
+            }
+        }
+
+
+    }
+}
+
+// 手機版 scss
+.rs-drawer-bottom {
+    .rs-drawer-dialog {
+        .rs-drawer-content {
+            .rs-drawer-body {
+                .roomType_flex {
+
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    width: 100%;
+
+
+                    [type="checkbox"]:checked,
+                    [type="checkbox"]:not(:checked) {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        visibility: hidden;
+                    }
+
+                    .checkbox-tools:checked+label,
+                    .checkbox-tools:not(:checked)+label {
+                        position: relative;
+                        top: 0;
+                        display: inline-block;
+                        width: 100%;
+
+                        padding: var(--subtitle_text) 6px;
+                        font-size: var(--text_size);
+                        line-height: var(--text_size);
+                        letter-spacing: 3px;
+                        margin: 3px;
+                        text-align: center;
+                        border-radius: 1rem;
+                        overflow: hidden;
+                        cursor: pointer;
+                        color: #999;
+                        -webkit-transition: all 300ms linear;
+                        transition: all 300ms linear;
+
+                        @media screen and (max-width:1680px) {
+                            width: 40%;
+                            margin: 0.3rem;
+                        }
+                    }
+
+                    .checkbox-tools:not(:checked)+label {
+                        background-color: var(--background_color);
+                        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+                    }
+
+                    .checkbox-tools:checked+label {
+                        background-color: var(--primary_color_600);
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                        color: var(--background_color);
+                    }
+
+                    .checkbox-tools:not(:checked)+label:hover {
+                        color: var(--primary_color_600);
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                    }
+
+                    .checkbox-tools:checked+label .fa-solid,
+                    .checkbox-tools:not(:checked)+label .fa-solid {
+                        font-size: var(--h5_text);
+                        line-height: var(--h5_text);
+                        display: block;
+                        padding-bottom: 10px;
+                    }
+                }
+
+                .roomSelect_area {
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+
+                    @media screen and (max-width: 1680px) {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        width: 100%;
+                    }
+
+                    [type="checkbox"]:checked,
+                    [type="checkbox"]:not(:checked) {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        visibility: hidden;
+                    }
+
+                    .checkbox-roomSelect:checked+label,
+                    .checkbox-roomSelect:not(:checked)+label {
+                        position: relative;
+                        top: 0;
+                        display: inline-block;
+                        width: 23%;
+
+                        padding: var(--subtitle_text) 6px;
+                        font-size: var(--text_size);
+                        line-height: var(--text_size);
+                        letter-spacing: 3px;
+                        margin: 3px;
+                        text-align: center;
+                        border-radius: 1rem;
+                        overflow: hidden;
+                        cursor: pointer;
+                        color: #999;
+                        -webkit-transition: all 300ms linear;
+                        transition: all 300ms linear;
+
+                        @media screen and (max-width:1680px) {
+                            width: 40%;
+                            margin: 0.3rem;
+                        }
+                    }
+
+                    .checkbox-roomSelect:not(:checked)+label {
+                        background-color: var(--background_color);
+                        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+                    }
+
+                    .checkbox-roomSelect:checked+label {
+                        background-color: var(--primary_color_600);
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                        color: var(--background_color);
+                    }
+
+                    .checkbox-roomSelect:not(:checked)+label:hover {
+                        color: var(--primary_color_600);
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                    }
+                }
+
+                .rs-row {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1rem;
+                    margin: 0;
+
+                    .rs-slider {
+                        .rs-slider-bar {
+                            .rs-slider-progress-bar {
+                                background-color: var(--primary_color_500);
+                            }
+                        }
+                    }
+
+                    .rs-slider-handle::before {
+                        border: 2px solid var(--primary_color);
+                        box-shadow: none;
+                    }
+
+                    .custom-slider {
+                        margin-top: 18px;
+
+                        .active {
+                            clip-path: none;
+                            box-shadow: none;
+                        }
+
+                        .rs-slider-handle {
+                            top: -6px;
+                            background-color: var(--primary_color);
+                            text-align: center;
+                            padding: 3px;
+                            margin-left: -16px;
+                            cursor: pointer;
+                        }
+
+                        &.rs-slider-dragging .rs-slider-handle,
+                        &.rs-slider-dragging .rs-slider-handle:hover {
+                            box-shadow: none;
+                            transform: scale(1.2);
+                        }
+                    }
+
+
+                }
+
+                .room_tag_area {
+
+                    /*  把預設勾選區藏起來 */
+                    [type="checkbox"]:checked,
+                    [type="checkbox"]:not(:checked) {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        visibility: hidden;
+                    }
+
+                    .checkbox-booking {
+
+                        // 建立 label 初始樣式
+                        &:checked+label,
+                        &:not(:checked)+label {
+                            top: 0;
+                            position: relative;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 6px var(--subtitle_text);
+                            font-size: var(--text_size);
+                            line-height: var(--subtitle_text);
+                            letter-spacing: 2px;
+                            margin: 0 6px var(--subtitle_text) 6px;
+                            text-align: center;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            color: var(--background_color);
+                            text-transform: uppercase;
+                            background-color: var(--primary_color_900);
+                        }
+
+                        // checkbox 點擊前的lebal 的偽元素 before
+                        &:not(:checked)+label {
+                            &::before {
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-image: linear-gradient(138deg,
+                                        var(--input_color),
+                                        var(--primary_color_500));
+                                transition: all 0.5s linear;
+
+                            }
+
+                            &:hover::before {
+                                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                            }
+
+                            // checkbox 點擊前的lebal 的偽元素 after
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-color: var(--primary_color_900);
+                                transition: all 0.5s linear;
+
+                            }
+
+                            // 文字的初始設定
+                            .text {
+                                position: relative;
+                                display: inline-block;
+                                opacity: 0.6;
+                                font-size: var(--text_size);
+
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    width: 0;
+                                    left: 0;
+                                    bottom: -10%;
+                                    margin-top: -1px;
+                                    height: 2px;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    z-index: 2;
+                                    width: 0;
+                                    transition: all 0.5s linear;
+                                }
+                            }
+                        }
+
+                        //checkbox 點擊後的lebal 
+                        &:checked+label {
+                            background-color: var(--primary_color_600);
+
+                            // 偽元素 before
+                            &::before {
+                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: -2;
+                                background-image: linear-gradient(138deg,
+                                        var(--input_color),
+                                        var(--primary_color_500));
+                                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                                transition: all 0.5s linear;
+                            }
+
+                            //偽元素 after
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                top: -2px;
+                                left: -2px;
+                                width: calc(100% + 4px);
+                                height: calc(100% + 4px);
+                                border-radius: 4px;
+                                z-index: 2;
+                                background-color: var(--primary_color_600);
+                                opacity: 0;
+                                transition: all 0.5s linear;
+                            }
+
+                            .text {
+                                position: relative;
+                                display: inline-block;
+                                z-index: 2;
+                                transition: all 0.5s linear;
+
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    left: 0;
+                                    bottom: -10%;
+                                    margin-top: -1px;
+                                    height: 2px;
+                                    background-image: linear-gradient(138deg,
+                                            var(--input_color),
+                                            var(--primary_color_500));
+                                    z-index: 2;
+                                    width: 100%;
+                                    transition: all 0.5s linear;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                .roomPeople_area {
+                    width: 100%;
+                    border-radius: 1rem;
+
+                    [type="checkbox"]:checked,
+                    [type="checkbox"]:not(:checked) {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        visibility: hidden;
+                    }
+
+
+
+                    .checkbox-people {
+
+                        &:checked+label,
+                        &:not(:checked)+label {
+                            position: relative;
+                            top: 0;
+                            display: inline-block;
+                            width: 100%;
+
+                            padding: var(--subtitle_text) 6px;
+                            font-size: var(--text_size);
+                            line-height: var(--text_size);
+                            letter-spacing: 3px;
+                            margin: 3px;
+                            text-align: center;
+                            border-radius: 1rem;
+                            overflow: hidden;
+                            cursor: pointer;
+                            color: #999;
+                            -webkit-transition: all 300ms linear;
+                            transition: all 300ms linear;
+
+                        }
+
+                        &:not(:checked)+label {
+                            background-color: var(--background_color);
+                            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+                        }
+
+                        &:checked+label {
+                            background-color: var(--primary_color_600);
+                            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                            color: var(--background_color);
+                        }
+
+                        &:not(:checked)+label:hover {
+                            color: var(--primary_color_600);
+                            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                        }
+
+                    }
+
+                }
+                .roomSearch_check{
+                    width: 85%;
+                    margin: auto;
+                    display: flex;
+                    [type="checkbox"]:checked,
+                    [type="checkbox"]:not(:checked) {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        visibility: hidden;
+                    }
+
+                    .checkbox-priceUp{
+                        &:checked+label,
+                        &:not(:checked)+label {
+                            position: relative;
+                            top: 0;
+                            display: inline-block;
+                            width: 100%;
+
+                            padding: var(--subtitle_text) 6px;
+                            font-size: var(--text_size);
+                            line-height: var(--text_size);
+                            letter-spacing: 3px;
+                            margin: 3px;
+                            text-align: center;
+                            border-radius: 1rem;
+                            overflow: hidden;
+                            cursor: pointer;
+                            color: #999;
+                            -webkit-transition: all 300ms linear;
+                            transition: all 300ms linear;
+                        }
+                        &:not(:checked)+label {
+                            background-color: var(--background_color);
+                            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+                        }
+                        &:checked+label {
+                            background-color: var(--primary_color_600);
+                            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                            color: var(--background_color);
+                        }
+                        &:not(:checked)+label:hover {
+                            color: var(--primary_color_600);
+                            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                        }
+                    }
+
+                   
+
+                    
+
+                    
+
+                    
+                }
+            }
+        }
+    }
+}
+
+.rs-popover {
+    background-color: var(--background_color);
+    color: var(--primary_color_900);
+}
+
+
+@media (max-width: 1680px) {
+    :root {
+        --h1_text: 84px;
+        --h2_text: 50px;
+        --h3_text: 40px;
+        --h4_text: 28px;
+        --h5_text: 20px;
+        --subtitle_text: 16px;
+        --button_text: 14px;
+        --text_size: 14px;
+
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --h1_text: 60px;
+        --h2_text: 46px;
+        --h3_text: 36px;
+        --h4_text: 22px;
+        --h5_text: 16px;
+        --subtitle_text: 14px;
+        --button_text: 14px;
+        --text_size: 14px;
+
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --h1_text: 48px;
+        --h2_text: 36px;
+        --h3_text: 28px;
+        --h4_text: 20px;
+        --h5_text: 14px;
+        --subtitle_text: 14px;
+        --button_text: 12px;
+        --text_size: 12px;
+
+    }
+}

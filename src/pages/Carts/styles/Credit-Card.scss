@@ -1,0 +1,186 @@
+  .first_component{
+    @mixin p_button {
+      font-size: var(--button_text);
+      border-radius: 15px;
+      width: 100px;
+      height: 30px;
+      background-color: var(--primary_color);
+      color: white;
+      text-align: center;
+      justify-content: center;
+      border: none;
+
+      &:hover {
+          background-color: var(--primary_color_600);
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.284);
+          transform: translate(-3px, -3px);
+      }
+
+      &:active {
+          transform: scale(0.98);
+          /* Scaling button to 0.98 to its original size */
+          box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+          /* Lowering the shadow */
+          color: var(--brown_color);
+      }
+  }
+
+    a {
+      color: #666;
+    }
+    
+    h1 {
+      margin: 0 0 4rem;
+    }
+    
+    h4 {
+      margin-bottom: 30px;
+    }
+
+    .App-payment {
+      // padding: 30px;
+    }
+    
+    form {
+      margin: 30px auto 0;
+      max-width: 400px;
+    }
+
+    .card_flex{
+    }
+  
+    .form-group{
+      display:flex;
+      flex-direction: row;
+    }
+    
+    .form-actions {
+      margin-top: 15px;
+    }
+  
+    .form-control {
+      margin-bottom: 0.5rem;
+    }
+    
+    .App-cards {
+      margin: 0 auto;
+      max-width: 1280px;
+      text-align: center;
+    }
+    
+    .App-cards-list {
+      display: flex;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .App-cards-list > * {
+      transform: scale(0.8);
+      margin-bottom: 30px !important;
+    }
+    
+    .App-highlight {
+      font-family: serif;
+      margin: 15px auto 0;
+      max-width: 300px;
+    }
+    
+    .App-highlight > div {
+      padding-left: 40px;
+    }
+    
+    .App-badges {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .App-badges a {
+      display: block;
+    }
+    
+    .App-badges a + a {
+      margin-top: 18px;
+    }
+    
+    .github__btn {
+      align-items: center;
+      background-color: #ccc;
+      border-radius: 4px;
+      color: #444;
+      display: flex;
+      line-height: 1;
+      padding: 8px 12px;
+    }
+    
+    .github__btn:hover {
+      color: #444;
+      text-decoration: none;
+    }
+    
+    .github__btn img {
+      display: inline-block;
+      height: 28px;
+      margin-right: 8px;
+    }
+    
+    .App-credits {
+      background-color: #000;
+      color: #fff;
+      line-height: 50px;
+      text-align: center;
+    }
+    
+    .App-credits a {
+      color: #fff;
+      font-weight: bold;
+    }
+  
+    .submit{
+      width: 100%;
+      text-align: center;
+      padding-bottom: 3rem;
+  }
+  
+  .submit button{
+    @include p_button();
+      color: #FFFFFF;
+      background-color: #000000;
+      height: 50px;
+      width: 153.69px;
+      border-radius: 50px;
+      font-size: 24px;
+  }
+    
+    @media screen and (max-width: 768px) {
+      .App-badges {
+        flex-direction: row;
+      }
+    
+      .App-badges a + a {
+        margin-top: 0;
+        margin-left: 18px;
+      }
+  
+      .submit{
+          width: 100%;
+          text-align: center;
+      }
+  
+      .submit button{
+          width: 40%;
+          color: #FFFFFF;
+          background-color: #000000;
+      }
+    }
+  }
+  
+//   h1,
+//   h2,
+//   h4 {
+//     text-align: center;
+//   }
+  
+  

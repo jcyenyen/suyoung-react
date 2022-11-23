@@ -1,0 +1,82 @@
+div.member-title {
+    color: var(--textColor);
+}
+.coupon-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    font-size: var(--button_text);
+
+    .left,
+    .right {
+        .coupon {
+            background-image: url("../../../../public/member_img/Anonymous_generic_ticket\ 1.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            color: #fff;
+            width: 400px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            transition: background-image 0.2s ease;
+            filter: drop-shadow(4px 4px 10px var(--transparent));
+            text-shadow: 1px 1px 7px var(--transparent);
+
+            &:hover {
+                background-image: url("../../../../public/member_img/Anonymous_generic_ticket\ 2.svg");
+            }
+
+            .discount-name {
+                font-size: medium;
+                padding-bottom: 10px;
+            }
+            .discount-date {
+                padding: 5px 0;
+            }
+            .date {
+                padding-bottom: 15px;
+            }
+
+            .coupon-number {
+                font-size: 30px;
+                text-shadow: 1px 1px 8px #fbbc05;
+                font-weight: 700;
+                letter-spacing: 2px;
+            }
+
+            @media screen and (max-width: 375px) {
+                transform: scale(0.9);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .coupon-box {
+        gap: 0;
+    }
+}
+
+@media screen and (max-width: 517px) {
+    .coupon-box {
+        font-size: 12px;
+        .left,
+        .right {
+            .coupon {
+                width: 295px;
+                height: 154px;
+
+                .coupon-number {
+                    font-size: 15px;
+                }
+                .discount-name {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,257 @@
+@import "../../../styles/global.scss";
+
+.member-body {
+    color: var(--textColor);
+    .form-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem;
+        justify-content: space-evenly;
+
+        @media screen and (max-width: 519px) {
+            gap: 0;
+            font-size: 16px;
+        }
+        @media screen and (max-width: 400px) {
+            justify-content: center;
+        }
+
+        .left {
+            @media screen and (max-width: 1388px) {
+                order: 2;
+            }
+            div {
+                padding: 14px 0;
+                text-shadow: 0px 0px 10px var(--transparent);
+                @media screen and (max-width: 519px) {
+                    padding: 8px 0;
+                }
+            }
+            .name {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4rem;
+                input {
+                    width: 10rem;
+                }
+
+                @media screen and (max-width: 519px) {
+                    gap: 2rem;
+                }
+                @media screen and (max-width: 410px) {
+                    gap: 10px;
+                }
+            }
+            select {
+                border: none;
+                padding: var(--text_size) 30px;
+                border-radius: var(--h3_text);
+                background-color: #fff6e7;
+                margin: 24px 10px 24px 0;
+                color: #000;
+
+                @media screen and (max-width: 519px) {
+                    padding: var(--text_size) 28px;
+                }
+            }
+            button {
+                @include p_button;
+                cursor: pointer;
+                width: 114px;
+                height: 43px;
+                transition: background-color 0.3s ease;
+                margin-top: 20px;
+
+                @media screen and (max-width: 768px) {
+                    margin-bottom: 48px;
+                }
+
+                &:hover {
+                    background-color: var(--primary_color_500);
+                }
+            }
+
+            input {
+                @include input_style;
+            }
+
+            @media screen and (max-width: 519px) {
+                input {
+                    padding: calc(var(--text_size) * 2) var(--text_size)
+                        calc(var(--text_size) * 2) calc(var(--text_size) * 2);
+                    width: calc(var(--h4_text) * 13);
+                }
+            }
+        }
+        .right {
+            .member-title {
+                margin: 2rem 0;
+            }
+
+            .avatar-check {
+                @include p_button;
+                margin-top: 20px;
+                &:hover {
+                    background-color: var(--primary_color_500);
+                }
+            }
+        }
+    }
+}
+
+.file-input {
+    cursor: pointer;
+    display: grid;
+    grid-template-areas: "stack";
+    pointer-events: auto;
+    color: var(--textColor);
+    position: initial;
+    width: 360px;
+    // height: 250px;
+    background-image: linear-gradient(var(--cardBackground));
+    border-radius: 15px;
+    padding: 1px;
+
+    @media screen and (max-width: 519px) {
+        width: 75vw;
+        height: 40vh;
+    }
+    @media screen and (max-width: 376px) {
+        width: 75vw;
+        height: 34vh;
+    }
+
+    & > * {
+        grid-area: stack;
+    }
+
+    input {
+        display: none;
+        cursor: pointer;
+    }
+    .drop-zone {
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // background-color: #222;
+        box-shadow: 0px 0px 5px #dcd7c7;
+        border-radius: 15px;
+        transition: box-shadow 0.5s ease;
+
+        img {
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+
+            @media screen and (max-width: 519px) {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        .para {
+            font-size: var(--h5_text);
+            color: var(--textColor2);
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 5px;
+        }
+    }
+}
+
+.light-active {
+    .drop-zone {
+        box-shadow: 0px 0px 10px var(--primary_color_500);
+        position: relative;
+        &::after {
+            content: "成功上傳！";
+            position: absolute;
+            right: 5px;
+            bottom: -30px;
+            text-shadow: 0px 0px 10px var(--transparent);
+        }
+    }
+}
+
+.update-password {
+    form {
+        margin: 20px 0;
+        max-width: none;
+    }
+
+    text-shadow: 0px 0px 10px var(--transparent);
+    .update-password {
+        padding: 15px 0;
+    }
+    input {
+        @include input_style;
+        margin-top: 5px;
+    }
+
+    .input_group {
+        position: relative;
+        .member-eye-button {
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            left: calc(var(--h4_text) * 8);
+            top: 10px;
+
+            @media screen and (max-width: 375px) {
+                left: calc(var(--h4_text) * 8);
+                top: 2px;
+            }
+
+            svg {
+                width: 50px;
+                color: var(--primary_color);
+            }
+        }
+    }
+
+    button.submit-password {
+        margin-top: 20px;
+        @include p_button;
+    }
+}
+
+.error-msg {
+    color: var(--error_color);
+}
+
+div.reset-password {
+    padding: 25px;
+    width: 400px;
+    height: 80vh;
+    margin: auto;
+    @media screen and (max-width: 487px) {
+        width: 350px;
+    }
+    form {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        input.password-input,
+        input.password-comfirm {
+            border: none;
+            padding: 0 20px;
+            border-radius: 15px;
+            height: 30px;
+            width: 100%;
+            background-color: var(--input_color);
+            margin: 15px 0;
+        }
+        button {
+            margin-top: 20px;
+            @include p_button;
+            &:hover {
+                background-color: var(--primary_color_500);
+            }
+        }
+    }
+}

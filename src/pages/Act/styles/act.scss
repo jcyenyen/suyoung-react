@@ -1,0 +1,245 @@
+@import "../../../styles/global.scss";
+
+#bg {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.actEnTitle {
+    color: #fff;
+    margin-right: 20px;
+}
+
+.actChTitle {
+    color: #fff;
+    margin-right: 20px;
+}
+
+.titleGroup {
+    padding: 50px 150px 50px;
+}
+.card_bg {
+    @include card_background;
+    background-color: #00000060;
+    padding-bottom: 30px;
+}
+
+.emf {
+    @include eastern_mistery_force;
+
+}
+.slider {
+    margin: auto;
+    width: 60%;
+    height: 800px;  
+    padding-left: 30px;  
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        border-radius: 1.5rem;
+    
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .swiper {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .swiper-slide {
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .mySwiper2 {
+        height: 80%;
+        width: 100%;
+    }
+    
+    .mySwiper {
+        height: 20%;
+        box-sizing: border-box;
+        padding: 10px 0;
+    }
+    .mySwiper .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+    }
+    
+    .mySwiper .swiper-slide-thumb-active {
+        opacity: 1;
+    }
+    
+    .swiper-slide img {
+        border-radius: 1.5rem;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/////////////活動內容收縮設定
+.actContentCotainer {
+    
+    .actGroup {
+        padding-left: 30px;
+        padding-right: 30px;
+        .actToggle {
+            color: #fff;
+            padding: 30px 50px;
+            // margin-top: 50px;
+            border-radius: 1.5rem;
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.33)
+            );
+            // position: absolute;
+            cursor: pointer;
+            width: 100%;
+        }
+        .mr-2 {
+            margin-right: 20px;
+        }
+        .actC{
+            margin-bottom: 20px;
+        }
+        .actDetail {
+            color: #fff;
+            padding: 0 30px;
+            backdrop-filter: blur(20px);
+            margin-top: 20px;
+            border-radius: 1.5rem;
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.33)
+            );
+            // border-radius: 1.5rem;
+            height: 0;
+            overflow: hidden;
+            // position: absolute;
+            // position: relative;
+            .textspace {
+                padding: 30px;
+            }
+        }
+    }
+}
+.actDetailTitle {
+    h4 {
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    }
+}
+
+.calendar {
+    margin: auto;
+    width: 80%;  
+    .calendarLeft {
+    background-color: #fff;
+    border-radius: 1.5rem;
+    margin-right: 30px;
+    }
+    .calendarRight {
+        color: #000;
+        background-color: #fff;
+        border-radius: 1.5rem;
+        .actOrder{
+            padding: 30px;
+            .orderItem{
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.actRsTitle {
+    margin: auto;
+    width: 75%;
+    margin-top: 50px;
+    h4 {
+    color: #fff;
+    padding: 20px;
+    }
+}
+
+.actForm {
+    width: 80%;
+    margin: auto;
+    
+    .actlabel {
+        color: #fff;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .actTitle {
+        @include input_style
+    }
+}
+
+.precautions{
+    width: 70%;
+    margin: auto;
+    color: #fff;
+    h5{
+        margin-bottom: 10px;
+        margin-top: 40px;
+    }
+    .agreeBtn {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        .btn {
+            margin-bottom: 10px;
+        }
+    }
+
+}
+.disableinput {
+    cursor: default !important;
+}
+
+.custom-input-number {
+    input {
+    text-align: center;
+    }
+
+    .rs-input-number-btn-group-vertical {
+    display: none;
+    }
+}   
+.like {
+    position: absolute;
+    left:10px;
+    top:10px;
+}
