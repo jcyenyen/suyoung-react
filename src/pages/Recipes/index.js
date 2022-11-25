@@ -238,7 +238,7 @@ function Index(props) {
                         <div className="d-flex justify-content-around p-3 p-md-5">
                             <div
                                 className="col-3 col-md-1 rounded-pill fw-bold d-flex align-items-center justify-content-center btn_font_color menu_button"
-                                onClick={() => one()}
+                                onClick={() => one()}   //沒有參數,最簡短arrow
                             >
                                 <div>大海滋味</div>
                             </div>
@@ -259,26 +259,26 @@ function Index(props) {
                             <div className="col-8 border-1 mt-3 mb-3 pb-3 pb-md-0 m-auto row justify-content-center">
                                 {!!recipes && recipes.length
                                     ? tryDisplay.map((v, i) => {
-                                          return (
-                                              <React.Fragment key={v.sid}>
-                                                  <div
-                                                      className={
-                                                          i % 2 === 0
-                                                              ? "ms-5"
-                                                              : "me-5"
-                                                      }
-                                                  >
-                                                      <div className="menu_content mt-3 w-75 text-white border-bottom border-white border-2">
-                                                          <Link
-                                                              to={`/shuyoung/recipes/recipesPage2/${v.sid}`}
-                                                          >
-                                                              {v.res_name}
-                                                          </Link>
-                                                      </div>
-                                                  </div>
-                                              </React.Fragment>
-                                          );
-                                      })
+                                        return (
+                                            <React.Fragment key={v.sid}>
+                                                <div
+                                                    className={
+                                                        i % 2 === 0
+                                                            ? "ms-5"
+                                                            : "me-5"
+                                                    }
+                                                >
+                                                    <div className="menu_content mt-3 w-75 text-white border-bottom border-white border-2">
+                                                        <Link
+                                                            to={`/shuyoung/recipes/recipesPage2/${v.sid}`}
+                                                        >
+                                                            {v.res_name}
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            </React.Fragment>
+                                        );
+                                    })
                                     : null}
                                 {/* <div className="menu_content mt-3 me-5 w-75 text-white border-bottom border-white border-2">牛油果雞蛋醃肉三文治</div>
                                 <div className="menu_content mt-3 ms-5 w-75  text-white border-bottom border-white border-2">牛油果雞蛋醃肉三文治</div>

@@ -287,6 +287,7 @@ function RecipesPage2(props) {
                             </div>
                             <h5 className="d-none col-4 col-md-1 rounded-pill m-auto mb-3 py-2 text-white btn_bgc_color text-center">加入購物車</h5>
                         </div>
+                        
                     </div>
                 </section>
             </div>
