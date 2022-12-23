@@ -20,7 +20,7 @@ import Booking from "./pages/Booking";
 import Member from "./pages/Member/Member";
 import Recipes from "./pages/Recipes";
 import RecipesPage2 from "./pages/Recipes/components/recipesPage2";
-import PhotoWall from "./pages/Recipes/components/photoWall";
+
 
 import SuMap from "./pages/SuMap/SuMap";
 // import Login from "./pages/Login";
@@ -107,10 +107,7 @@ function App() {
                                                     path="recipesPage2/:sid"
                                                     element={<RecipesPage2  />}
                                                 />
-                                                <Route
-                                                    path="photoWall"
-                                                    element={<PhotoWall />}
-                                                />
+                                                
                                             </Route>
 
                                                 <Route path="SuMap">
