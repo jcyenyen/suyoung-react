@@ -109,6 +109,9 @@
 .ingredient {
     width: 50vw;
 }
+.step {
+    height: 65vh;
+}
 
 .step_button {
     box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.75);
@@ -187,6 +190,7 @@
 
     .step_border {
         border-right: 1px white solid;
+        height:29vw
     } 
 
     .recipe_picture {
