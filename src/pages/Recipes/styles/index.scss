@@ -113,6 +113,7 @@
 .step_button {
     box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.75);
     cursor: pointer;
+
 }
 
 .recipe_material {
@@ -183,6 +184,10 @@
     .step {
         height: 43vw;
     }
+
+    .step_border {
+        border-right: 1px white solid;
+    } 
 
     .recipe_picture {
         height: 60vw;

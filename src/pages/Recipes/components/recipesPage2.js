@@ -189,16 +189,16 @@ function RecipesPage2(props) {
                     <div className="j_container pt-md-5">
                         <div className="glass step mb-md-3 text-center">
                             <div className="recipe_title border-bottom border-2 w-75 m-auto mb-3 pt-3 pb-md-5 pt-md-5 text-center">How To Do: </div>
-                            <div className="border border-dark rounded-pill col-9 m-auto  d-md-none">
+                            <div className="border border-dark rounded-pill col-9 m-auto  d-md-none d-none">
                                 <div className="step_button m-auto text-center rounded-pill my-2 py-1 recipe_title" onClick={() => toggleTab(1)}>Step 1.</div>
                             </div>
-                            <div className={togglestate === 1 ?"col-9 m-auto text-white text-center d-md-none" :"col-9 m-auto text-white text-center d-md-none content_page"}>
+                            <div className={togglestate === 1 ?"col-9 m-auto text-white text-center d-md-none d-none" :"col-9 m-auto text-white text-center d-md-none content_page d-none"}>
                                 <div className="col-9 m-auto">準備章魚燒的餡料，將章魚切成自己喜歡的大小，高麗菜切末，青蔥切成蔥花。</div>
                                 <div><img className="col-10" 
                                 src={`/recipes_img/octopusball1.svg`}></img>
                                 </div>
                             </div>
-                            <div className="border border-dark rounded-pill col-9 m-auto  d-md-none">
+                            <div className="border border-dark rounded-pill col-9 m-auto  d-md-none d-none">
                                 <div className="step_button m-auto text-center rounded-pill my-2 py-1 recipe_title" onClick={() => toggleTab(2)}>Step 2.</div>
                             </div>
                             <div className={togglestate === 2 ?"col-9 m-auto text-white text-center d-md-none" :"col-9 m-auto text-white text-center d-md-none content_page"}>
@@ -207,7 +207,7 @@ function RecipesPage2(props) {
                                 src={`/recipes_img/octopusball2.svg`}></img>
                                 </div>
                             </div>
-                            <div className="border border-dark rounded-pill col-9 m-auto  d-md-none">
+                            <div className="border border-dark rounded-pill col-9 m-auto  d-md-none d-none">
                                 <div className="step_button m-auto text-center rounded-pill my-2 py-1 recipe_title" onClick={() => toggleTab(3)}>Step 3.</div>
                             </div>
                             <div className={togglestate === 3 ?"col-9 m-auto text-white text-center d-md-none" :"col-9 m-auto text-white text-center d-md-none content_page"}>
@@ -216,7 +216,7 @@ function RecipesPage2(props) {
                                 src={`/recipes_img/octopusball3.svg`}></img>
                                 </div>
                             </div>
-                            <div className="border border-dark rounded-pill col-9 m-auto  d-md-none">
+                            <div className="border border-dark rounded-pill col-9 m-auto  d-md-none d-none">
                                 <div className="step_button m-auto text-center rounded-pill my-2 py-1 recipe_title" onClick={() => toggleTab(4)}>Step 4.</div>
                             </div>
                             <div className={togglestate === 4 ?"col-9 m-auto text-white text-center d-md-none" :"col-9 m-auto text-white text-center d-md-none content_page"}>
@@ -225,7 +225,7 @@ function RecipesPage2(props) {
                                 src={`/recipes_img/octopusball4.svg`}></img>
                                 </div>
                             </div>
-                            <div className="border border-dark rounded-pill col-9 m-auto d-md-none">
+                            <div className="border border-dark rounded-pill col-9 m-auto d-md-none d-none">
                                 <div className="step_button m-auto text-center rounded-pill my-2 py-1 recipe_title" onClick={() => toggleTab(5)}>Step 5.</div>
                             </div>
                             <div className={togglestate === 5 ?"col-9 m-auto pb-5 text-white text-center d-md-none" :"col-9 pb-5 m-auto text-white text-center d-md-none content_page"}>
@@ -234,13 +234,13 @@ function RecipesPage2(props) {
                                 src={`/recipes_img/octopusball5.svg`}></img>
                                 </div>
                             </div>                            
-                            <div className="d-none d-md-flex col-md-10 m-auto">
-                                <div className="col-md-3 border-end border-2">
-                                    <div className="step_button col-md-7 m-auto text-center rounded-pill border border-dark my-5 py-1 recipe_title" onClick={() => {toggleTab(1);step1()}}>Step 1.</div>
-                                    <div className="step_button col-md-7 m-auto text-center rounded-pill border border-dark my-5 py-1 recipe_title" onClick={() => {toggleTab(2);step2()}}>Step 2.</div>
-                                    <div className="step_button col-md-7 m-auto text-center rounded-pill border border-dark my-5 py-1 recipe_title" onClick={() => {toggleTab(3);step3()}}>Step 3.</div>
-                                    <div className="step_button col-md-7 m-auto text-center rounded-pill border border-dark my-5 py-1 recipe_title" onClick={() => {toggleTab(4);step4()}}>Step 4.</div>
-                                    <div className="step_button col-md-7 m-auto text-center rounded-pill border border-dark my-5 py-1 recipe_title" onClick={() => {toggleTab(5);step5()}}>Step 5.</div>
+                            <div className=" d-md-flex col-md-10 m-auto">
+                                <div className="col-md-3 step_border">
+                                    <div className="step_button col-md-7 col-9 m-auto text-center rounded-pill border border-dark my-1 my-md-5 py-1 recipe_title" onClick={() => {toggleTab(1);step1()}}>Step 1.</div>
+                                    <div className="step_button col-md-7 col-9 m-auto text-center rounded-pill border border-dark my-md-5 my-2 py-1 recipe_title" onClick={() => {toggleTab(2);step2()}}>Step 2.</div>
+                                    <div className="step_button col-md-7 m-auto col-9 text-center rounded-pill border border-dark my-md-5 my-2 py-1 recipe_title" onClick={() => {toggleTab(3);step3()}}>Step 3.</div>
+                                    <div className="step_button col-md-7 m-auto col-9 text-center rounded-pill border border-dark my-md-5 my-2 py-1 recipe_title" onClick={() => {toggleTab(4);step4()}}>Step 4.</div>
+                                    <div className="step_button col-md-7 m-auto col-9 text-center rounded-pill border border-dark my-md-5 my-2 py-1 recipe_title" onClick={() => {toggleTab(5);step5()}}>Step 5.</div>
                                 </div>
                                 <div className="col-md-9">
                                     {!!tutorial && tutorial.length ? tutorial.filter((v, i) => {
@@ -270,7 +270,7 @@ function RecipesPage2(props) {
                                                     <div className={togglestate === 5 ? "col-9 text-md-center" : "col-9 text-md-center content_page"}>
                                                         <img className="col-md-9 img_height" src={`/recipes_img/${v.step5_img}`} alt="" />
                                                     </div>
-                                                    <div className="col-3 text-center">
+                                                    <div className="col-3 text-center d-none d-md-block">
                                                         <div className="recipe_title mt-5">大廚計時器</div>
                                                         <div className="col-md-8 m-auto text-center rounded-pill border border-dark my-4 recipe_title ">{minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}</div>
                                                         <div className="d-flex mt-5 pt-5">
